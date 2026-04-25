@@ -26,7 +26,7 @@ try:
     TAN_LIST_SIZE = 128
     TAN_LIST_RENEWAL_RETAIN_SIZE = 16
     app = Flask(__name__)
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": "https://merc-online.de"}})
 
     def getLockFile() -> bool:
         waitTime = 0.0
