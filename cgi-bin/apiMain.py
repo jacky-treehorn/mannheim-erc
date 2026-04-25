@@ -244,16 +244,18 @@ try:
                 _config[tanDictLargestIndexKey] = largestCurrentIndex + 1
                 if _config[tanDictLargestIndexKey] >= TAN_LIST_SIZE:
                     listSizeReached = True
-                if not listSizeReached:
-                    if os.path.exists(tanListFullPath):
-                        with open(tanListFullPath, "w") as f:
-                            json.dump(_config, f, indent=4)
+                if os.path.exists(tanListFullPath):
+                    with open(tanListFullPath, "w") as f:
+                        json.dump(_config, f, indent=4)
+                        if not listSizeReached:
                             return jsonify({"success": True, "message": "TAN entwertet"}), 200
-                    else:
-                        return jsonify({"success": False, "error": "TAN Liste konnte nicht gefunden werden"}), 404
+                else:
+                    return jsonify({"success": False, "error": "TAN Liste konnte nicht gefunden werden"}), 404
             else:
                 return jsonify({"success": False, "error": "TAN nicht vorhanden"}), 404
             if listSizeReached:
+                if os.path.exists(LOCK_FILE):
+                    os.remove(LOCK_FILE)
                 _generateTanListAndAssign()
                 return jsonify({"success": True, "message": "TAN entwertet"}), 200
         except Exception as e:
