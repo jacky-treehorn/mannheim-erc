@@ -3673,6 +3673,8 @@ input:focus-visible {
   box-shadow: var(--shadow-sm);
   border-left: 4px solid var(--primary-color);
   transition: var(--transition-base);
+  display: flex;
+  flex-direction: column;
 }
 
 .news-item:hover {
