@@ -1,2 +1,5 @@
-/functions/generatePdfFromJson/stvSchnelllaufCreds.json
 node_modules
+/cgi-bin/private_key.pem
+/cgi-bin/stvSchnelllaufCreds.json
+/cgi-bin/tanList.json
+/mitgliederHtmlPws.json
