@@ -1,4 +1,28 @@
 const ARCHIVE_NEWS_LIST = [
+    {title: "Regio Cup in Grafing",
+    date: "21.03.2026",
+    url:"",
+      text: `<p>Wettkampfbericht Grafing Regio Cup</p>
+      <p> Alle Sportler konnten beim Regio Cup in Grafing ausgezeichnete Leistungen zeigen und die Saison beenden. Für die Masters geht es nächste Woche noch nach
+      Polen zur Master WM
+      
+      </p>
+
+
+
+`},
+  {title: "Regio Cup in Grafing",
+    date: "21.03.2026",
+    url:"",
+      text: `<p>Wettkampfbericht Grafing Regio Cup</p>
+      <p> Alle Sportler konnten beim Regio Cup in Grafing ausgezeichnete Leistungen zeigen und die Saison beenden. Für die Masters geht es nächste Woche noch nach
+      Polen zur Master WM
+      
+      </p>
+
+
+
+`},
   {
     title: "Oberstdorf Summercamp 2025",
     date: "09.08.2025",
