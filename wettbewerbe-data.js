@@ -4,6 +4,20 @@
    ======================================== */
 
 const wettbewerbeData = [
+   {
+    id: "dm-2026",
+    title: "Deutsche Meisterschaften 2026",
+    date: "01.01.2027",
+    description:
+      "Tets-Wettkämpfe in Berlin. Unsere Athleten haben 3 Medaillen geholt. Bla bla bla",
+    coverImage: "images/82331e4d-ed93-4d10-8211-51c107e9e614.jpg",
+    gallery: [
+      "images/82331e4d-ed93-4d10-8211-51c107e9e614.jpg",
+      "images/Bild2.jpeg",
+      "https://via.placeholder.com/800x600?text=Siegerehrung",
+      "https://via.placeholder.com/800x600?text=Lauf+Kuer",
+    ],
+  },
   {
     id: "dm-2025",
     title: "Deutsche Meisterschaften 2025",
