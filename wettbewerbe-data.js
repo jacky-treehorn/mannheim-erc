@@ -4,6 +4,20 @@
    ======================================== */
 
 const wettbewerbeData = [
+ {
+    id: "Test Samstag Seminar",
+    title: "Wir lernen programmieren",
+    date: "23.05.2026",
+    description:
+      `hätte ich in der Schule besser in Informatik aufgepasst, könnte ich das jetzt`,
+    coverImage: "images/82331e4d-ed93-4d10-8211-51c107e9e614.jpg",
+    gallery: [
+      "images/82331e4d-ed93-4d10-8211-51c107e9e614.jpg",
+      "images/Bild2.jpeg",
+      "https://via.placeholder.com/800x600?text=Siegerehrung",
+      "https://via.placeholder.com/800x600?text=Lauf+Kuer",
+    ],
+  },
   {
     id: "dm-2025",
     title: "Deutsche Meisterschaften 2025",
