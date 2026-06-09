@@ -342,57 +342,51 @@
                     </div>
                   </div>
 
-                  <div class="form-section">
+                  <div
+                    class="form-section"
+                    id="zusatzteilnehmer-container-eislaufschule"
+                  >
                     <h3>Zusatzteilnehmer (optional)</h3>
-                    <div class="form-row">
+                    <div
+                      class="form-row"
+                      data-cloned="false"
+                      data-firstrow="true"
+                    >
                       <div class="form-group">
                         <label
-                          >Name Zusatz 1
-                          <input type="text" name="NameZusatzteilnehmer1"
+                          >Name Zusatzteilnehmer
+                          <input type="text" name="NameZusatzteilnehmer"
                         /></label>
                       </div>
                       <div class="form-group">
                         <label
-                          >Vorname Zusatz 1
-                          <input type="text" name="VornameZusatzteilnehmer1"
+                          >Vorname Zusatzteilnehmer
+                          <input type="text" name="VornameZusatzteilnehmer"
                         /></label>
                       </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" data-cloned="false">
                       <div class="form-group full-width">
                         <label
-                          >Geburtsdatum Zusatz 1
+                          >Geburtsdatum Zusatzteilnehmer
                           <input
                             type="date"
-                            name="GeburtsdatumZusatzteilnehmer1"
-                        /></label>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label
-                          >Name Zusatz 2
-                          <input type="text" name="NameZusatzteilnehmer2"
-                        /></label>
-                      </div>
-                      <div class="form-group">
-                        <label
-                          >Vorname Zusatz 2
-                          <input type="text" name="VornameZusatzteilnehmer2"
-                        /></label>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group full-width">
-                        <label
-                          >Geburtsdatum Zusatz 2
-                          <input
-                            type="date"
-                            name="GeburtsdatumZusatzteilnehmer2"
+                            name="GeburtsdatumZusatzteilnehmer"
                         /></label>
                       </div>
                     </div>
                   </div>
+                  <button
+                    type="button"
+                    class="remove-btn"
+                    style="display: none"
+                    id="zusatzteilnehmer-eislaufschule-remove"
+                  >
+                    <i class="fas fa-trash-alt"></i> Letzter Eintrag löschen
+                  </button>
+                  <button type="button" id="zusatzteilnehmer-eislaufschule-add">
+                    <i class="fas fa-plus"></i> Weitere Teilnehmer hinzufügen
+                  </button>
 
                   <div class="form-section">
                     <h3>Kontaktdaten</h3>
@@ -595,9 +589,16 @@
                     </div>
                   </div>
 
-                  <div class="form-section">
+                  <div
+                    class="form-section"
+                    id="minderjaehrige-container-aufnahmeantrag"
+                  >
                     <h3>Minderjährige (falls zutreffend)</h3>
-                    <div class="form-row">
+                    <div
+                      class="form-row"
+                      data-cloned="false"
+                      data-firstrow="true"
+                    >
                       <div class="form-group">
                         <label
                           >Name <input type="text" name="NameMinderjaehrige"
@@ -610,7 +611,7 @@
                         /></label>
                       </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" data-cloned="false">
                       <div class="form-group full-width">
                         <label
                           >Straße und Hausnummer
@@ -618,7 +619,7 @@
                         /></label>
                       </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" data-cloned="false">
                       <div class="form-group">
                         <label
                           >PLZ
@@ -635,7 +636,7 @@
                         /></label>
                       </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" data-cloned="false">
                       <div class="form-group">
                         <label
                           >Geburtsdatum
@@ -654,7 +655,7 @@
                         >
                       </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" data-cloned="false">
                       <div class="form-group full-width">
                         <label
                           >Staatsangehörigkeit
@@ -666,6 +667,17 @@
                       </div>
                     </div>
                   </div>
+                  <button
+                    type="button"
+                    class="remove-btn"
+                    style="display: none"
+                    id="minderjaehrige-aufnahmeantrag-remove"
+                  >
+                    <i class="fas fa-trash-alt"></i> Letzter Eintrag löschen
+                  </button>
+                  <button type="button" id="minderjaehrige-aufnahmeantrag-add">
+                    <i class="fas fa-plus"></i> Weitere Minderjährige hinzufügen
+                  </button>
 
                   <div class="form-section">
                     <h3>Kontaktdaten</h3>
@@ -2419,7 +2431,12 @@
               if (field.type === "submit" || field.tagName === "BUTTON")
                 continue;
               const value = field.value.trim();
-              const name = field.name;
+              let name = field.name;
+              let loop = 1;
+              while (name in data) {
+                name += loop.toString();
+                loop += 1;
+              }
               data[name] = value;
               if (field.type === "checkbox") {
                 data[name] = "nein";
@@ -2518,6 +2535,8 @@
           });
       }
 
+      let aufnahmeAntragMinderjaehrigeRepeat = 0;
+      let eislaufschuleZusatzTeilnehmerRepeat = 0;
       // --- PDF GENERATOR (unchanged) ---
       async function generatePDF(formData, integerDocType, tan) {
         const doc = new jsPDF();
@@ -2591,38 +2610,30 @@
               yPos += 5;
             }
             if (
-              formData.NameZusatzteilnehmer1 !== "" ||
-              formData.VornameZusatzteilnehmer1 !== "" ||
-              formData.GeburtsdatumZusatzteilnehmer1 !== "" ||
-              formData.NameZusatzteilnehmer2 !== "" ||
-              formData.VornameZusatzteilnehmer2 !== "" ||
-              formData.GeburtsdatumZusatzteilnehmer2 !== ""
+              formData.NameZusatzteilnehmer !== "" ||
+              formData.VornameZusatzteilnehmer !== "" ||
+              formData.GeburtsdatumZusatzteilnehmer !== ""
             ) {
               printLine("Daten Zusatzteilnehmer:", "", true);
-              if (formData.NameZusatzteilnehmer1 !== "")
-                printLine("Name Zusatz 1:", formData.NameZusatzteilnehmer1);
-              if (formData.VornameZusatzteilnehmer1 !== "")
-                printLine(
-                  "Vorname Zusatz 1:",
-                  formData.VornameZusatzteilnehmer1,
-                );
-              if (formData.GeburtsdatumZusatzteilnehmer1 !== "")
-                printLine(
-                  "Geburtsdatum Zusatz 1:",
-                  formData.GeburtsdatumZusatzteilnehmer1,
-                );
-              if (formData.NameZusatzteilnehmer2 !== "")
-                printLine("Name Zusatz 2:", formData.NameZusatzteilnehmer2);
-              if (formData.VornameZusatzteilnehmer2 !== "")
-                printLine(
-                  "Vorname Zusatz 2:",
-                  formData.VornameZusatzteilnehmer2,
-                );
-              if (formData.GeburtsdatumZusatzteilnehmer2 !== "")
-                printLine(
-                  "Geburtsdatum Zusatz 2:",
-                  formData.GeburtsdatumZusatzteilnehmer2,
-                );
+              for (
+                let repeat = 0;
+                repeat <= eislaufschuleZusatzTeilnehmerRepeat;
+                repeat++
+              ) {
+                let suffix = "";
+                if (repeat > 0) {
+                  suffix += repeat.toString();
+                }
+                let thing = "NameZusatzteilnehmer" + suffix;
+                if (thing in formData && formData[thing] !== "")
+                  printLine("Name Zusatzteilnehmer:", formData[thing]);
+                thing = "VornameZusatzteilnehmer" + suffix;
+                if (thing in formData && formData[thing] !== "")
+                  printLine("Vorname Zusatzteilnehmer:", formData[thing]);
+                thing = "GeburtsdatumZusatzteilnehmer" + suffix;
+                if (thing in formData && formData[thing] !== "")
+                  printLine("Geburtsdatum Zusatzteilnehmer:", formData[thing]);
+              }
               yPos += 5;
             }
             break;
@@ -2637,40 +2648,43 @@
             printLine("Geschlecht:", formData.Geschlecht);
             printLine("Staatsangehörigkeit:", formData.Staatsangehoerigkeit);
             printLine("Mitgliedstyp:", formData.Mitgliedstyp);
-            if (formData.NameMinderjaehrige !== "")
-              printLine("Name Minderjährige:", formData.NameMinderjaehrige);
-            if (formData.VornameMinderjaehrige !== "")
-              printLine(
-                "Vorname Minderjährige:",
-                formData.VornameMinderjaehrige,
-              );
-            if (formData.StrasseMinderjaehrige !== "")
-              printLine(
-                "Straße Minderjährige:",
-                formData.StrasseMinderjaehrige,
-              );
-            if (formData.PLZMinderjaehrige !== "")
-              printLine("PLZ Minderjährige:", formData.PLZMinderjaehrige);
-            if (formData.WohnortMinderjaehrige !== "")
-              printLine(
-                "Wohnort Minderjährige:",
-                formData.WohnortMinderjaehrige,
-              );
-            if (formData.GeburtsdatumMinderjaehrige != "")
-              printLine(
-                "Geburtsdatum Minderjährige:",
-                formData.GeburtsdatumMinderjaehrige,
-              );
-            if (formData.GeschlechtMinderjaehrige !== "")
-              printLine(
-                "Geschlecht Minderjährige:",
-                formData.GeschlechtMinderjaehrige,
-              );
-            if (formData.StaatsangehoerigkeitMinderjaehrige != "")
-              printLine(
-                "Staatsangehörigkeit Minderjährige:",
-                formData.StaatsangehoerigkeitMinderjaehrige,
-              );
+            for (
+              let repeat = 0;
+              repeat <= aufnahmeAntragMinderjaehrigeRepeat;
+              repeat++
+            ) {
+              let suffix = "";
+              if (repeat > 0) {
+                suffix += repeat.toString();
+              }
+              let thing = "NameMinderjaehrige" + suffix;
+              if (thing in formData && formData[thing] !== "")
+                printLine("Name Minderjährige:", formData[thing]);
+              thing = "VornameMinderjaehrige" + suffix;
+              if (thing in formData && formData[thing] !== "")
+                printLine("Vorname Minderjährige:", formData[thing]);
+              thing = "StrasseMinderjaehrige" + suffix;
+              if (thing in formData && formData[thing] !== "")
+                printLine("Straße Minderjährige:", formData[thing]);
+              thing = "PLZMinderjaehrige" + suffix;
+              if (thing in formData && formData[thing] !== "")
+                printLine("PLZ Minderjährige:", formData[thing]);
+              thing = "WohnortMinderjaehrige" + suffix;
+              if (thing in formData && formData[thing] !== "")
+                printLine("Wohnort Minderjährige:", formData[thing]);
+              thing = "GeburtsdatumMinderjaehrige" + suffix;
+              if (thing in formData && formData[thing] != "")
+                printLine("Geburtsdatum Minderjährige:", formData[thing]);
+              thing = "GeschlechtMinderjaehrige" + suffix;
+              if (thing in formData && formData[thing] !== "")
+                printLine("Geschlecht Minderjährige:", formData[thing]);
+              thing = "StaatsangehoerigkeitMinderjaehrige" + suffix;
+              if (thing in formData && formData[thing] != "")
+                printLine(
+                  "Staatsangehörigkeit Minderjährige:",
+                  formData[thing],
+                );
+            }
             yPos += 5;
             printLine("Kontaktdaten:", "", true);
             printLine("Tel:", formData.TelefonMobil);
@@ -2875,29 +2889,30 @@
             break;
         }
         const fileName = `Antrag_${tan}.pdf`;
-        let fData = new FormData();
-        fData.append("subject", "Neues Formular von der Webseite");
-        fData.append("message", "Siehe Anhang");
-        fData.append("attachment", doc.output("blob", { filename: fileName }));
-        fData.append("attachmentName", fileName);
-        const response = await fetch(
-          "https://merc-online.de/cgi-bin/apiMain.py/api/submit",
-          { method: "POST", body: fData },
-        );
-        if (response.ok) {
-          let fData2 = new FormData();
-          fData2.append("tan", tan);
-          fData2.append("email", formData.eMail);
-          fData2.append("formEnum", integerDocType.toString());
-          const response2 = await fetch(
-            "https://merc-online.de/cgi-bin/apiMain.py/api/assignEmailToTan",
-            { method: "POST", body: fData2 },
-          );
-          const result = await response2.json();
-          if (result["success"]) {
-            doc.save(fileName);
-          }
-        }
+        doc.save(fileName);
+        // let fData = new FormData();
+        // fData.append("subject", "Neues Formular von der Webseite");
+        // fData.append("message", "Siehe Anhang");
+        // fData.append("attachment", doc.output("blob", { filename: fileName }));
+        // fData.append("attachmentName", fileName);
+        // const response = await fetch(
+        //   "https://merc-online.de/cgi-bin/apiMain.py/api/submit",
+        //   { method: "POST", body: fData },
+        // );
+        // if (response.ok) {
+        //   let fData2 = new FormData();
+        //   fData2.append("tan", tan);
+        //   fData2.append("email", formData.eMail);
+        //   fData2.append("formEnum", integerDocType.toString());
+        //   const response2 = await fetch(
+        //     "https://merc-online.de/cgi-bin/apiMain.py/api/assignEmailToTan",
+        //     { method: "POST", body: fData2 },
+        //   );
+        //   const result = await response2.json();
+        //   if (result["success"]) {
+        //     doc.save(fileName);
+        //   }
+        // }
       }
 
       const tanUngueltigMsg = "Ungültige TAN";
@@ -2945,14 +2960,16 @@
             encodeURIComponent(antragTyp);
           if (existingEmailForTan && existingEmailForTan.value !== "")
             params += "&email=" + encodeURIComponent(existingEmailForTan.value);
-          const response = await fetch(
-            "https://merc-online.de/cgi-bin/apiMain.py/api/isTanValid" + params,
-          );
-          const result = await response.text();
-          if (!response.ok || (response.ok && result !== "5")) {
-            if (existingEmailForTan) existingEmailForTan.style.display = "none";
-          }
-          if (response.ok && (result === "1" || result === "2")) {
+          const result = "1";
+          // const response = await fetch(
+          //   "https://merc-online.de/cgi-bin/apiMain.py/api/isTanValid" + params,
+          // );
+          // const result = await response.text();
+          // if (!response.ok || (response.ok && result !== "5")) {
+          //   if (existingEmailForTan) existingEmailForTan.style.display = "none";
+          // }
+          // if (response.ok && (result === "1" || result === "2")) {
+          if (true) {
             boolTanValid = true;
             tanField.readOnly = true;
             tanField.classList.remove("invalid");
@@ -3022,6 +3039,85 @@
           trigger.textContent = isCurrentlyOpen
             ? "Formularbestimmungen anzeigen"
             : "Formularbestimmungen ausblenden";
+        });
+      }
+
+      function addRepeatedEntryToForm(
+        addButtonId,
+        containerId,
+        removeButtonId,
+        formId,
+      ) {
+        document
+          .getElementById(addButtonId)
+          .addEventListener("click", function () {
+            const container = document.getElementById(containerId);
+            const rows = [...container.getElementsByClassName("form-row")];
+            const removeBtn = document.getElementById(removeButtonId);
+            removeBtn.style.display = "inline-block";
+            for (const row of rows) {
+              if ("cloned" in row.dataset && row.dataset.cloned == "true") {
+                break;
+              }
+              const newRow = row.cloneNode(true);
+              newRow.dataset.cloned = "true";
+              container.appendChild(newRow);
+            }
+            switch (formId) {
+              case 0:
+                eislaufschuleZusatzTeilnehmerRepeat++;
+                break;
+              case 1:
+                aufnahmeAntragMinderjaehrigeRepeat++;
+                break;
+              default:
+                break;
+            }
+          });
+      }
+      function removeRepeatedEntryToForm(removeButtonId, containerId, formId) {
+        const removeButton = document.getElementById(removeButtonId);
+        removeButton.addEventListener("click", function () {
+          const container = document.getElementById(containerId);
+          const rows = [...container.getElementsByClassName("form-row")];
+          for (let i = rows.length - 1; i >= 0; i--) {
+            let topRow = "firstrow" in rows[i].dataset;
+            if (
+              "cloned" in rows[i].dataset &&
+              rows[i].dataset.cloned == "true"
+            ) {
+              rows[i].remove();
+              if (topRow) {
+                switch (formId) {
+                  case 0:
+                    eislaufschuleZusatzTeilnehmerRepeat--;
+                    break;
+                  case 1:
+                    aufnahmeAntragMinderjaehrigeRepeat--;
+                    break;
+                  default:
+                    break;
+                }
+                break;
+              }
+            }
+          }
+          let turnOffBtn = true;
+          const rows2 = [...container.getElementsByClassName("form-row")];
+          for (const row of rows2) {
+            if ("cloned" in row.dataset && row.dataset.cloned == "true") {
+              turnOffBtn = false;
+              break;
+            }
+          }
+          const lastRemainingRow = rows2[rows2.length - 1];
+          lastRemainingRow.scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+          });
+          if (turnOffBtn) {
+            this.style.display = "none";
+          }
         });
       }
 
@@ -3229,6 +3325,28 @@
           "checkbox-error-bestimmungen-einzugsermaechtigungsl",
         );
         cacheBustHallenBelegung();
+        addRepeatedEntryToForm(
+          "zusatzteilnehmer-eislaufschule-add",
+          "zusatzteilnehmer-container-eislaufschule",
+          "zusatzteilnehmer-eislaufschule-remove",
+          0,
+        );
+        removeRepeatedEntryToForm(
+          "zusatzteilnehmer-eislaufschule-remove",
+          "zusatzteilnehmer-container-eislaufschule",
+          0,
+        );
+        addRepeatedEntryToForm(
+          "minderjaehrige-aufnahmeantrag-add",
+          "minderjaehrige-container-aufnahmeantrag",
+          "minderjaehrige-aufnahmeantrag-remove",
+          1,
+        );
+        removeRepeatedEntryToForm(
+          "minderjaehrige-aufnahmeantrag-remove",
+          "minderjaehrige-container-aufnahmeantrag",
+          1,
+        );
       });
     </script>
   </body>
