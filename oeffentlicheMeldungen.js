@@ -25,7 +25,7 @@ const OEFFENTLICHE_MELDUNGEN = [
     date: "01.09.2024",
     url: "",
     text: `
-      <a href="https://www.merc-online.de/files/trauenrrede_f__r_den_merc_f__r_karl_hager.pdf">Bitte finden Sie hier den
+      <a href="https://www.merc-online.de/dokumente/verein/trauenrrede_f__r_den_merc_f__r_karl_hager.pdf">Bitte finden Sie hier den
       Nachruf von unserem verstorbenen&nbsp; Ehrenvorsitzenden Karl Hager!</a>`,
   },
   {
