@@ -2439,7 +2439,7 @@ input:focus-visible {
 }
 
 .info-card-title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
   font-weight: 700;
   color: var(--text-dark);
   font-family: var(--font-family-accent);
