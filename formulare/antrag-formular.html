@@ -182,7 +182,8 @@
           <h1 class="page-title">Antr&auml;ge &amp; Formulare</h1>
           <p class="page-subtitle">
             Bitte TAN eingeben und verifizieren, um das jeweilige Formular zu
-            &ouml;ffnen. Eine TAN erh&auml;lt man in der Gesch&auml;ftsstelle.
+            &ouml;ffnen. Eine TAN erh&auml;lt man per 
+            <a href="../index.html#contact-form-main" style="color: black;">E-mail an die Gesch&auml;ftsstelle.</a>
             <strong
               >Beim Erstellen eines Antrags kommt noch kein Vertrag zustande.
             </strong>
@@ -1069,7 +1070,7 @@
               <div class="card-header">
                 <div class="card-header-text">
                   <h2>Mietvertrag Aufbewahrungsschrank</h2>
-                  <p>Miete eines Aufbewahrungsschranks,
+                  <p>Miete eines Aufbewahrungsschranks.
                     <strong
                       >Kein TAN benötigt, wird automatisch generiert!</strong
                     >
@@ -1345,7 +1346,7 @@
                 <div class="card-header-text">
                   <h2>Mietvertrag Leihschlittschuhe</h2>
                   <p>
-                    Ausleihe von Schlittschuhen,
+                    Ausleihe von Schlittschuhen.
                     <strong
                       >Kein TAN benötigt, wird automatisch generiert!</strong
                     >
@@ -1571,7 +1572,8 @@
               <div class="card-header">
                 <div class="card-header-text">
                   <h2>Einwilligungserklärung</h2>
-                  <p>Einwilligung zur Veröffentlichung im Internet</p>
+                  <p>Einwilligung zur Veröffentlichung im Internet.</p>
+                  <strong>Kein TAN benötigt, wird automatisch generiert!</strong>
                 </div>
                 <div class="tan-row">
                   <input
@@ -1686,6 +1688,25 @@
                       id="checkbox-error-bestimmungen-einwilligungserklaerung"
                     ></div>
                   </div>
+                  <div class="form-section">
+                    <label
+                      for="capchaInput"
+                    >
+                      Sicherheitsfrage
+                      <p 
+                        id="capchaQuestionEinwilligungserklaerung"
+                        data-name="capchaQuestionField"
+                      >
+                        4+5=?
+                      </p>
+                    </label>
+                    <input
+                      type="number"
+                      id="capchaInputFieldEinwilligungserklaerung"
+                      name="capchaInput"
+                      required
+                    />
+                  </div>
                   <div class="form-footer">
                     <a href="../about.html" class="btn-back">Zurück</a>
                     <button
@@ -1707,7 +1728,8 @@
               <div class="card-header">
                 <div class="card-header-text">
                   <h2>Einzugsermächtigung Kunstlauf</h2>
-                  <p>SEPA-Lastschriftmandat für die Abteilung Eiskunstlauf</p>
+                  <p>SEPA-Lastschriftmandat für die Abteilung Eiskunstlauf.</p>
+                  <strong>Kein TAN benötigt, wird automatisch generiert!</strong>
                 </div>
                 <div class="tan-row">
                   <input
@@ -1992,6 +2014,25 @@
                       id="checkbox-error-bestimmungen-einzugsermaechtigungkl"
                     ></div>
                   </div>
+                  <div class="form-section">
+                    <label
+                      for="capchaInput"
+                    >
+                      Sicherheitsfrage
+                      <p 
+                        id="capchaQuestionEinzugsermaechtigungkl"
+                        data-name="capchaQuestionField"
+                      >
+                        4+5=?
+                      </p>
+                    </label>
+                    <input
+                      type="number"
+                      id="capchaInputFieldEinzugsermaechtigungkl"
+                      name="capchaInput"
+                      required
+                    />
+                  </div>
                   <div class="form-footer">
                     <a href="../about.html" class="btn-back">Zurück</a>
                     <button
@@ -2015,8 +2056,9 @@
                   <h2>Einzugsermächtigung Schnelllauf</h2>
                   <p>
                     SEPA-Lastschriftmandat für die Abteilung Eisschnelllauf /
-                    Shorttrack
+                    Shorttrack.
                   </p>
+                  <strong>Kein TAN benötigt, wird automatisch generiert!</strong>
                 </div>
                 <div class="tan-row">
                   <input
@@ -2285,6 +2327,25 @@
                       id="checkbox-error-bestimmungen-einzugsermaechtigungsl"
                     ></div>
                   </div>
+                  <div class="form-section">
+                    <label
+                      for="capchaInput"
+                    >
+                      Sicherheitsfrage
+                      <p 
+                        id="capchaQuestionEinzugsermaechtigungsl"
+                        data-name="capchaQuestionField"
+                      >
+                        4+5=?
+                      </p>
+                    </label>
+                    <input
+                      type="number"
+                      id="capchaInputFieldEinzugsermaechtigungsl"
+                      name="capchaInput"
+                      required
+                    />
+                  </div>
                   <div class="form-footer">
                     <a href="../about.html" class="btn-back">Zurück</a>
                     <button
@@ -2427,7 +2488,10 @@
       const { jsPDF } = globalThis.jspdf;
       const formsThatDoNotNeedTan = {
         "3":3,
-        "4":4
+        "4":4,
+        "5":5,
+        "6":6,
+        "7":7
       }
       // --- DYNAMISCHE UNTERABTEILUNGEN ---
       const abteilungSelect = document.getElementById("abteilung");
@@ -3569,6 +3633,18 @@
           "capchaQuestionLeihschlittschuhe",
           "capchaInputFieldLeihschlittschuhe",
           4);
+        getCapchaQuestion(
+          "capchaQuestionEinwilligungserklaerung",
+          "capchaInputFieldEinwilligungserklaerung",
+          5);
+        getCapchaQuestion(
+          "capchaQuestionEinzugsermaechtigungkl",
+          "capchaInputFieldEinzugsermaechtigungkl",
+          6);
+        getCapchaQuestion(
+          "capchaQuestionEinzugsermaechtigungsl",
+          "capchaInputFieldEinzugsermaechtigungsl",
+          7);
       });
     </script>
   </body>
