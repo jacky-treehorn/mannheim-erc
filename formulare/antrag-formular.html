@@ -2425,7 +2425,10 @@
 
     <script>
       const { jsPDF } = globalThis.jspdf;
-
+      const formsThatDoNotNeedTan = {
+        "3":3,
+        "4":4
+      }
       // --- DYNAMISCHE UNTERABTEILUNGEN ---
       const abteilungSelect = document.getElementById("abteilung");
       const unterabteilungSelect = document.getElementById("unterabteilung");
@@ -2559,6 +2562,10 @@
             const data = {};
             const elements = this.elements;
             const targetParagraphs = this.querySelectorAll('p[data-name="capchaQuestionField"]');
+            if (!tanField.classList.contains("valid")){
+              tanField.focus();
+              return;
+            }
             let idForCapchaQ = "";
             targetParagraphs.forEach(paragraph => {
                 idForCapchaQ = paragraph.id;
@@ -2686,7 +2693,7 @@
               }, 3000);
               tanField.classList.remove("valid");
               tanField.value = "";
-              if (integerDocType == 4 || integerDocType == 3){
+              if (Object.values(formsThatDoNotNeedTan).includes(integerDocType)){
                 tanField.value = generateDefaultTan();
                 tanField.readOnly = true;
                 tanField.classList.remove("invalid");
@@ -3093,8 +3100,7 @@
         );
         // Leihschuhe brauchen kein TAN
         if (response.ok) {
-          if (integerDocType != 4 &&
-              integerDocType != 3){
+          if (!Object.values(formsThatDoNotNeedTan).includes(integerDocType)){
             let fData2 = new FormData();
             fData2.append("tan", tan);
             fData2.append("email", formData.eMail);
@@ -3141,7 +3147,7 @@
           ? document.getElementById(newStartWarningId)
           : null;
         if (!toggleButton || !wrapper || !tanField || !tanButton) return;
-        let boolTanValid = antragTyp == "4" || antragTyp == "3";
+        let boolTanValid =  antragTyp in formsThatDoNotNeedTan;
 
         if (boolTanValid) {
           tanButton.style.display = "none";
