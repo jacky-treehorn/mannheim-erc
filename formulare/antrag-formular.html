@@ -1065,17 +1065,29 @@
                 </form>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="section-title" style="color: white;">Formulare ohne TAN</h1>
+          <p class="section-subtitle" style="color: white;">
+            Für die folgende Formulare brauchen Sie keine TAN eingeben, eine TAN
+            wird automatisch generiert
+          </p>
+        </div>
+      </section>
+
+      <section class="forms-section">
+        <div class="container">
+          <div class="forms-container">
             <!-- ── AUFBEWAHRUNGSSCHRANK ──────────────────────────────── -->
             <div class="form-card" id="linkSchrankmiete">
               <div class="card-header">
                 <div class="card-header-text">
                   <h2>Mietvertrag Aufbewahrungsschrank</h2>
-                  <p>Miete eines Aufbewahrungsschranks.
-                    <strong
-                      >Kein TAN benötigt, wird automatisch generiert!</strong
-                    >
-                  </p>
+                  <p>Miete eines Aufbewahrungsschranks.</p>
                 </div>
                 <div class="tan-row">
                   <input
@@ -1348,9 +1360,6 @@
                   <h2>Mietvertrag Leihschlittschuhe</h2>
                   <p>
                     Ausleihe von Schlittschuhen.
-                    <strong
-                      >Kein TAN benötigt, wird automatisch generiert!</strong
-                    >
                   </p>
                 </div>
                 <div class="tan-row">
@@ -1574,7 +1583,6 @@
                 <div class="card-header-text">
                   <h2>Einwilligungserklärung</h2>
                   <p>Einwilligung zur Veröffentlichung im Internet.</p>
-                  <strong>Kein TAN benötigt, wird automatisch generiert!</strong>
                 </div>
                 <div class="tan-row">
                   <input
@@ -1730,7 +1738,6 @@
                 <div class="card-header-text">
                   <h2>Einzugsermächtigung Kunstlauf</h2>
                   <p>SEPA-Lastschriftmandat für die Abteilung Eiskunstlauf.</p>
-                  <strong>Kein TAN benötigt, wird automatisch generiert!</strong>
                 </div>
                 <div class="tan-row">
                   <input
@@ -2059,7 +2066,6 @@
                     SEPA-Lastschriftmandat für die Abteilung Eisschnelllauf /
                     Shorttrack.
                   </p>
-                  <strong>Kein TAN benötigt, wird automatisch generiert!</strong>
                 </div>
                 <div class="tan-row">
                   <input
@@ -3289,11 +3295,13 @@
             wrapper.classList.remove("visible");
             if (card) card.classList.remove("is-open");
             if (newStartWarning) newStartWarning.classList.remove("visible");
-            tanField.readOnly = false;
-            tanField.classList.remove("valid", "invalid");
-            tanField.value = "";
+            if (!(antragTyp in formsThatDoNotNeedTan)){
+              tanField.readOnly = false;
+              tanField.classList.remove("valid", "invalid");
+              tanField.value = "";
+              boolTanValid = false;
+            }
             if (existingEmailForTan) existingEmailForTan.value = "";
-            boolTanValid = false;
           }
         });
       }
