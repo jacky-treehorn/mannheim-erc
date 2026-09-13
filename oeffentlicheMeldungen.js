@@ -1,5 +1,12 @@
 const OEFFENTLICHE_MELDUNGEN = [
   {
+    title: "Saisonstart!",
+    date: "13.09.2026",
+    url: "",
+    text: `
+      <p><strong>Die Saison 2026-2027 hat begonnen. Die Geschäftsstelle ist zu den auf der Webseite angegebenen Öffnungszeiten geöffnet. Wir freuen uns, alle alten und neuen Mitglieder bei uns begrüßen zu dürfen.
+      Bitte beachten Sie unbedingt den Belegungsplan, da die Trainingszeiten variieren können. Den jeweils aktuellen Belegungsplan finden Sie unter Hallenbelegung/Belegungspläne.</strong></p>`,
+  },{
     title: "Sommerpause!",
     date: "01.04.2026",
     url: "",
