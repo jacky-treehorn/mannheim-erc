@@ -3083,6 +3083,12 @@ input:focus-visible {
   gap: var(--spacing-md);
 }
 
+.download-card:only-child {
+  max-width: 400px;
+  width: 100%;
+  justify-self: center;
+}
+
 .download-card .download-meta {
   margin-top: auto;
 }
