@@ -287,6 +287,7 @@ try:
         try:
             assert lockObtained, LOCK_FILE_ERROR_MSG
             TAN_DICT = _generateTanListHelper()
+            generatedKeys = list(TAN_DICT.keys())
             with open(LOCK_FILE, 'w') as f:
                 f.write("locked")
             oldTanDict = {}
@@ -298,7 +299,13 @@ try:
                 if tanDictLargestIndexKey in _config:
                     largestIndex = _config[tanDictLargestIndexKey]
                 for key, value in _config.items():
-                    if key == tanDictLargestIndexKey or value[tanDictIndexKey] <= 0 or value[tanDictIndexKey] < largestIndex - TAN_LIST_RENEWAL_RETAIN_SIZE + 1:
+                    if key == tanDictLargestIndexKey:
+                        continue
+                    if value[tanDictEmailKey] == "" and value[tanDictIndexKey] == 0 and value[tanDictFormEnumKey] == "-1":
+                        TAN_DICT.pop(generatedKeys.pop())
+                        TAN_DICT[key] = value
+                        continue
+                    if value[tanDictIndexKey] <= 0 or value[tanDictIndexKey] < largestIndex - TAN_LIST_RENEWAL_RETAIN_SIZE + 1:
                         continue
                     oldTanDict[key] = value
             for key in oldTanDict.keys():
