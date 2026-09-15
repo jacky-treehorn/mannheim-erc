@@ -15,6 +15,7 @@ if git diff --cached --name-only | grep -q "main.css"; then
     echo "   aendert die Stellen auf main.css?v=N+1"
     echo "==============================================================="
     echo ""
+    exit 1
 fi
 
 if git diff --cached --name-only | grep -q "Kurzmeldungen-archive.js"; then
@@ -25,6 +26,7 @@ if git diff --cached --name-only | grep -q "Kurzmeldungen-archive.js"; then
     echo "   aendert die Stellen auf Kurzmeldungen-archive.js?v=N+1"
     echo "==============================================================="
     echo ""
+    exit 1
 fi
 
 if git diff --cached --name-only | grep -q "eisschnelllauf-events.js"; then
@@ -35,6 +37,7 @@ if git diff --cached --name-only | grep -q "eisschnelllauf-events.js"; then
     echo "   aendert die Stellen auf eisschnelllauf-events.js?v=N+1"
     echo "==============================================================="
     echo ""
+    exit 1
 fi
 
 if git diff --cached --name-only | grep -q "generalFunctions.js"; then
@@ -45,6 +48,7 @@ if git diff --cached --name-only | grep -q "generalFunctions.js"; then
     echo "   aendert die Stellen auf generalFunctions.js?v=N+1"
     echo "==============================================================="
     echo ""
+    exit 1
 fi
 
 if git diff --cached --name-only | grep -q "generalFunctions.js"; then
@@ -55,6 +59,7 @@ if git diff --cached --name-only | grep -q "generalFunctions.js"; then
     echo "   aendert die Stellen auf generalFunctions.js?v=N+1"
     echo "==============================================================="
     echo ""
+    exit 1
 fi
 
 if git diff --cached --name-only | grep -q "oeffentlicheMeldungen.js"; then
@@ -65,6 +70,7 @@ if git diff --cached --name-only | grep -q "oeffentlicheMeldungen.js"; then
     echo "   aendert die Stellen auf oeffentlicheMeldungen.js?v=N+1"
     echo "==============================================================="
     echo ""
+    exit 1
 fi
 
 if git diff --cached --name-only | grep -q "wettbewerbe-data.js"; then
@@ -75,5 +81,6 @@ if git diff --cached --name-only | grep -q "wettbewerbe-data.js"; then
     echo "   aendert die Stellen auf wettbewerbe-data.js?v=N+1"
     echo "==============================================================="
     echo ""
+    exit 1
 fi
 
