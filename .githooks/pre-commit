@@ -1,0 +1,79 @@
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+if git diff --cached --name-only | grep -q "main.css"; then
+    echo ""
+    echo "==============================================================="
+    echo "   ACHTUNG: Aenderungen in main.css!"
+    echo "   In HTML Dateien, sucht nach main.css?v=N &"
+    echo "   aendert die Stellen auf main.css?v=N+1"
+    echo "==============================================================="
+    echo ""
+fi
+
+if git diff --cached --name-only | grep -q "Kurzmeldungen-archive.js"; then
+    echo ""
+    echo "==============================================================="
+    echo "   ACHTUNG: Aenderungen in Kurzmeldungen-archive.js!"
+    echo "   In HTML Dateien, sucht nach Kurzmeldungen-archive.js?v=N &"
+    echo "   aendert die Stellen auf Kurzmeldungen-archive.js?v=N+1"
+    echo "==============================================================="
+    echo ""
+fi
+
+if git diff --cached --name-only | grep -q "eisschnelllauf-events.js"; then
+    echo ""
+    echo "==============================================================="
+    echo "   ACHTUNG: Aenderungen in eisschnelllauf-events.js!"
+    echo "   In HTML Dateien, sucht nach eisschnelllauf-events.js?v=N &"
+    echo "   aendert die Stellen auf eisschnelllauf-events.js?v=N+1"
+    echo "==============================================================="
+    echo ""
+fi
+
+if git diff --cached --name-only | grep -q "generalFunctions.js"; then
+    echo ""
+    echo "==============================================================="
+    echo "   ACHTUNG: Aenderungen in generalFunctions.js!"
+    echo "   In HTML Dateien, sucht nach generalFunctions.js?v=N &"
+    echo "   aendert die Stellen auf generalFunctions.js?v=N+1"
+    echo "==============================================================="
+    echo ""
+fi
+
+if git diff --cached --name-only | grep -q "generalFunctions.js"; then
+    echo ""
+    echo "==============================================================="
+    echo "   ACHTUNG: Aenderungen in generalFunctions.js!"
+    echo "   In HTML Dateien, sucht nach generalFunctions.js?v=N &"
+    echo "   aendert die Stellen auf generalFunctions.js?v=N+1"
+    echo "==============================================================="
+    echo ""
+fi
+
+if git diff --cached --name-only | grep -q "oeffentlicheMeldungen.js"; then
+    echo ""
+    echo "==============================================================="
+    echo "   ACHTUNG: Aenderungen in oeffentlicheMeldungen.js!"
+    echo "   In HTML Dateien, sucht nach oeffentlicheMeldungen.js?v=N &"
+    echo "   aendert die Stellen auf oeffentlicheMeldungen.js?v=N+1"
+    echo "==============================================================="
+    echo ""
+fi
+
+if git diff --cached --name-only | grep -q "wettbewerbe-data.js"; then
+    echo ""
+    echo "==============================================================="
+    echo "   ACHTUNG: Aenderungen in wettbewerbe-data.js!"
+    echo "   In HTML Dateien, sucht nach wettbewerbe-data.js?v=N &"
+    echo "   aendert die Stellen auf wettbewerbe-data.js?v=N+1"
+    echo "==============================================================="
+    echo ""
+fi
+
