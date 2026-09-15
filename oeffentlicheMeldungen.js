@@ -39,7 +39,7 @@ const OEFFENTLICHE_MELDUNGEN = [
       tragt euch </font><font size="4" style="font-size: 16pt"><b>in die
       Listen</b></font><font size="4" style="font-size: 16pt"> ein oder
       sagt Bescheid:</font></p>
-      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Kunst-lauf
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Kunstlauf
       </b></font><font size="4" style="font-size: 16pt">-&gt; Mariya
       Trofymov</font></p>
       <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Schnelllauf-</b></font><font size="4" style="font-size: 16pt">&gt;
