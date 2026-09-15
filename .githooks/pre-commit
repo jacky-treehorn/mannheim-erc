@@ -9,80 +9,23 @@
 
 # Damit dies funktioniert: git config core.hooksPath .githooks
 
-if git diff --cached --name-only | grep -q "main.css"; then
-    echo ""
-    echo "==============================================================="
-    echo "   ACHTUNG: Aenderungen in main.css!"
-    echo "   In HTML Dateien, sucht nach main.css?v=N &"
-    echo "   aendert die Stellen auf main.css?v=N+1"
-    echo "==============================================================="
-    echo ""
-    exit 1
-fi
+files_to_check="main.css Kurzmeldungen-archive.js eisschnelllauf-events.js generalFunctions.js oeffentlicheMeldungen.js wettbewerbe-data.js formularBedingungen.js"
+failed=0
+staged_files=$(git diff --cached --name-only)
+for file in $files_to_check; do
+    if echo "$staged_files" | grep -q "$file"; then
+        echo ""
+        echo "==============================================================="
+        echo "   ACHTUNG: Aenderungen in $file!"
+        echo "   In HTML Dateien, sucht nach $file?v=N &"
+        echo "   aendert die Stellen auf $file?v=N+1"
+        echo "==============================================================="
+        echo ""
+        failed=1
+    fi
+done
 
-if git diff --cached --name-only | grep -q "Kurzmeldungen-archive.js"; then
-    echo ""
-    echo "==============================================================="
-    echo "   ACHTUNG: Aenderungen in Kurzmeldungen-archive.js!"
-    echo "   In HTML Dateien, sucht nach Kurzmeldungen-archive.js?v=N &"
-    echo "   aendert die Stellen auf Kurzmeldungen-archive.js?v=N+1"
-    echo "==============================================================="
-    echo ""
-    exit 1
-fi
-
-if git diff --cached --name-only | grep -q "eisschnelllauf-events.js"; then
-    echo ""
-    echo "==============================================================="
-    echo "   ACHTUNG: Aenderungen in eisschnelllauf-events.js!"
-    echo "   In HTML Dateien, sucht nach eisschnelllauf-events.js?v=N &"
-    echo "   aendert die Stellen auf eisschnelllauf-events.js?v=N+1"
-    echo "==============================================================="
-    echo ""
-    exit 1
-fi
-
-if git diff --cached --name-only | grep -q "generalFunctions.js"; then
-    echo ""
-    echo "==============================================================="
-    echo "   ACHTUNG: Aenderungen in generalFunctions.js!"
-    echo "   In HTML Dateien, sucht nach generalFunctions.js?v=N &"
-    echo "   aendert die Stellen auf generalFunctions.js?v=N+1"
-    echo "==============================================================="
-    echo ""
-    exit 1
-fi
-
-if git diff --cached --name-only | grep -q "generalFunctions.js"; then
-    echo ""
-    echo "==============================================================="
-    echo "   ACHTUNG: Aenderungen in generalFunctions.js!"
-    echo "   In HTML Dateien, sucht nach generalFunctions.js?v=N &"
-    echo "   aendert die Stellen auf generalFunctions.js?v=N+1"
-    echo "==============================================================="
-    echo ""
-    exit 1
-fi
-
-if git diff --cached --name-only | grep -q "oeffentlicheMeldungen.js"; then
-    echo ""
-    echo "==============================================================="
-    echo "   ACHTUNG: Aenderungen in oeffentlicheMeldungen.js!"
-    echo "   In HTML Dateien, sucht nach oeffentlicheMeldungen.js?v=N &"
-    echo "   aendert die Stellen auf oeffentlicheMeldungen.js?v=N+1"
-    echo "==============================================================="
-    echo ""
-    exit 1
-fi
-
-if git diff --cached --name-only | grep -q "wettbewerbe-data.js"; then
-    echo ""
-    echo "==============================================================="
-    echo "   ACHTUNG: Aenderungen in wettbewerbe-data.js!"
-    echo "   In HTML Dateien, sucht nach wettbewerbe-data.js?v=N &"
-    echo "   aendert die Stellen auf wettbewerbe-data.js?v=N+1"
-    echo "==============================================================="
-    echo ""
+if [ "$failed" -eq 1 ]; then
     exit 1
 fi
 
