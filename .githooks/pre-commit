@@ -7,6 +7,8 @@
 #
 # To enable this hook, rename this file to "pre-commit".
 
+# Damit dies funktioniert: git config core.hooksPath .githooks
+
 if git diff --cached --name-only | grep -q "main.css"; then
     echo ""
     echo "==============================================================="
