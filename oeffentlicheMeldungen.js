@@ -1,5 +1,60 @@
 const OEFFENTLICHE_MELDUNGEN = [
   {
+    title: "An alle Mitglieder, die einmal etwas anderes machen möchten",
+    date: "15.09.2026",
+    url: "",
+    text: `
+      <p align="center" style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt">Am
+      Sonntag, </font><font size="4" style="font-size: 16pt"><b>den
+      27.09.2026</b></font></p>
+      <p align="center" style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Kletterwald</b></font><font size="4" style="font-size: 16pt">
+      Viernheim</font></p>
+      <p align="center" style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>15:00
+      Uhr – 17:00 Uhr</b></font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Treffpunkt:
+      </b></font><font size="4" style="font-size: 16pt">14:45 Uhr vor Ort </font>
+      </p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Anfahrt:</b></font><font size="4" style="font-size: 16pt">
+      Lorscher Weg -&gt; Parkplatz Kletterwald, 68519 Viernheim</font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Preis:</b></font><font size="4" style="font-size: 16pt">
+      19,90€ pro Kletterer</font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Begleitpersonen</b></font><font size="4" style="font-size: 16pt">
+      dürfen kostenlos in das Klettergelände zum Beobachten</font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt">Für
+      </font><font size="4" style="font-size: 16pt"><b>Kinder unter 5
+      Jahren</b></font><font size="4" style="font-size: 16pt"> befindet
+      sich direkt neben dem Kletterwald ein Offizieller Spielplatz </font>
+      </p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Hunde
+      </b></font><font size="4" style="font-size: 16pt">dürfen auch mit,
+      bitte schön anleinen und das Frauchen/Herrchen passt auf!</font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Mitbringen:</b></font><font size="4" style="font-size: 16pt">
+      Bequeme Sportkleidung und Turnschuhe, kleiner Rucksack mit etwas
+      Proviant</font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt">oder
+      man kann auch </font><font size="4" style="font-size: 16pt"><b>vor
+      Ort</b></font><font size="4" style="font-size: 16pt"> eine
+      Kleinigkeit Essen und Trinken</font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt">Bitte
+      tragt euch </font><font size="4" style="font-size: 16pt"><b>in die
+      Listen</b></font><font size="4" style="font-size: 16pt"> ein oder
+      sagt Bescheid:</font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Kunstlauf
+      </b></font><font size="4" style="font-size: 16pt">-&gt; Mariya
+      Trofymov</font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"><font size="4" style="font-size: 16pt"><b>Schnelllauf-</b></font><font size="4" style="font-size: 16pt">&gt;
+      Desiree Pawasserat oder den Trainern</font>
+      </p>
+      <p align="center" style="line-height: 108%; margin-bottom: 0.11in"><br/>
+      <br/>
+
+      </p>
+      <p align="center" style="line-height: 108%; margin-bottom: 0.11in"><font size="5" style="font-size: 20pt"><i><b>Wir
+      freuen uns auf einen schönen abwechslungs-</b></i></font></p>
+      <p align="center" style="line-height: 108%; margin-bottom: 0.11in"><font size="5" style="font-size: 20pt"><i><b>reichen Nachmittag!</b></i></font></p>
+      <p style="line-height: 108%; margin-bottom: 0.11in"></p>`,
+  },
+  {
     title: "Saisonstart!",
     date: "13.09.2026",
     url: "",

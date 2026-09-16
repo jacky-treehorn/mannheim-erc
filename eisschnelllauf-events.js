@@ -20,4 +20,5 @@ const events = {
   "2026-08-06": "Sommercamp Oberstdorf Tag 6",
   "2026-08-07": "Sommercamp Oberstdorf Tag 7",
   "2026-08-08": "Sommercamp Oberstdorf Tag 8",
+  "2026-09-27": "Kletterwald Viernheim",
 };
