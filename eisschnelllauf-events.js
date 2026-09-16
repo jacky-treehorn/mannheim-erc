@@ -21,4 +21,7 @@ const events = {
   "2026-08-07": "Sommercamp Oberstdorf Tag 7",
   "2026-08-08": "Sommercamp Oberstdorf Tag 8",
   "2026-09-27": "Kletterwald Viernheim",
+  "2026-10-03": "Deutschland-Pokal Dresden",
+  "2026-10-04": "Deutschland-Pokal Dresden",
+
 };
