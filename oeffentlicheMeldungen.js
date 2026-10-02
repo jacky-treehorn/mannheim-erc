@@ -1,5 +1,14 @@
 const OEFFENTLICHE_MELDUNGEN = [
   {
+    title: "Abteilungsversammlung Schnelllauf",
+    date: "02.10.2026",
+    url: "",
+    text: `
+      <p>Am Donnerstag <strong>22.10.2026 um 18:00</strong> findet die Abteilungsversammlung für Schnelllauf im Seminarraum der EZH statt.</p>
+      <p>Anträge zur Versammlung müssen spätestens 14 Tage vor dem genannten Terminen in der Geschäftsstelle vorliegen.</p>
+      <p>Wir freuen uns auf zahlreiches Erscheinen.</p>`,
+  },
+  {
     title: "An alle Mitglieder, die einmal etwas anderes machen möchten",
     date: "15.09.2026",
     url: "",
@@ -61,7 +70,8 @@ const OEFFENTLICHE_MELDUNGEN = [
     text: `
       <p><strong>Die Saison 2026-2027 hat begonnen. Die Geschäftsstelle ist zu den auf der Webseite angegebenen Öffnungszeiten geöffnet. Wir freuen uns, alle alten und neuen Mitglieder bei uns begrüßen zu dürfen.
       Bitte beachten Sie unbedingt den Belegungsplan, da die Trainingszeiten variieren können. Den jeweils aktuellen Belegungsplan finden Sie unter Hallenbelegung/Belegungspläne.</strong></p>`,
-  },{
+  },
+  {
     title: "Sommerpause!",
     date: "01.04.2026",
     url: "",
