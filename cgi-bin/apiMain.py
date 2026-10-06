@@ -89,8 +89,10 @@ try:
             msg['cc'] = from_field
             msg['Reply-To'] = from_field
             if swapCCandTo:
-                msg['To'] = from_field
+                del msg['To']
                 del msg['Reply-To']
+                del msg['cc']
+                msg['To'] = from_field
                 msg['cc'] = "office@merc-online.de"
         msg.set_content(content)
 
@@ -197,6 +199,13 @@ try:
 
     @app.route('/api/sendTanToEmail', methods=["GET"])
     def sendTanToEmail() -> typing.Tuple[typing.Dict[str, typing.Union[str, bool]], int]:
+        out = _sendTanToEmailHelper(request.args.get('email'))
+        if out[1] == 789:
+            _generateTanListAndAssign()
+            out = _sendTanToEmailHelper(request.args.get('email'))
+        return out
+    
+    def _sendTanToEmailHelper(email: typing.Optional[str] = None):
         if not os.path.exists(tanListFullPath):
             return jsonify({"success": False, "error": "Tandatei nicht gefunden"}), 404
         lockObtained = getLockFile()
@@ -206,23 +215,17 @@ try:
             assert lockObtained, LOCK_FILE_ERROR_MSG
             with open(LOCK_FILE, 'w') as f:
                 f.write("locked")
-            email = request.args.get('email')
             if email is None:
                 return jsonify({"success": False, "error":"Kein Argument 'email' im Request vorhanden"}), 412
             if not validEmailHelper(email):
                 return jsonify({"success": False, "error":"Emailformat ungueltig"}), 412
-            verifyingTan = request.args.get('verifizierung')
-            if verifyingTan is None:
-                return jsonify({"success": False, "error":"Kein Argument 'verifizierung'"}), 412
             _config = None
             with open(tanListFullPath, "r") as f:
                 _config = json.load(f)
-                if verifyingTan not in _config:
-                    return jsonify({"success": False, "error":f"{verifyingTan} konnte in der Tandatei nicht gefunden werden"}), 401
             if _config is not None:
                 for tan,entry in _config.items():
                     if tanDictEmailKey in entry and entry[tanDictEmailKey] == "":
-                        if tanDictVergabedatumKey not in entry or today + datetime.timedelta(days=7) > datetime.datetime.fromisoformat(entry[tanDictVergabedatumKey]):
+                        if tanDictVergabedatumKey not in entry or today > datetime.datetime.fromisoformat(entry[tanDictVergabedatumKey]) + datetime.timedelta(days=7):
                             entry[tanDictVergabedatumKey] = today.isoformat()
                             send_email_with_attachment("TAN Anfrage",
                                                        "Ihre TAN lautet: "+tan+". Diese TAN ist fuer Sie 7 Tage reserviert.",
@@ -231,6 +234,7 @@ try:
                             with open(tanListFullPath, "w") as f:
                                 json.dump(_config, f, indent=4)
                             return jsonify({"success": True, "message": f"{tan} wird an {email} verschickt"}), 200
+                return jsonify({"success": False, "error": "Keine TANs verfuegbar, Liste muss neu generiert"}), 789
         except Exception as e:
             return jsonify({"success": False, "error": str(e)}), 500
         finally:
