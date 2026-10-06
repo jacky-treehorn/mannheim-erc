@@ -205,7 +205,7 @@ try:
             out = _sendTanToEmailHelper(request.args.get('email'))
         return out
     
-    def _sendTanToEmailHelper(email: typing.Optional[str] = None):
+    def _sendTanToEmailHelper(email: typing.Optional[str] = None) -> typing.Tuple[typing.Dict[str, typing.Union[str, bool]], int]:
         if not os.path.exists(tanListFullPath):
             return jsonify({"success": False, "error": "Tandatei nicht gefunden"}), 404
         lockObtained = getLockFile()
