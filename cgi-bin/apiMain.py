@@ -224,6 +224,8 @@ try:
                 _config = json.load(f)
             if _config is not None:
                 for tan,entry in _config.items():
+                    if tan == tanDictLargestIndexKey:
+                        continue
                     if tanDictEmailKey in entry and entry[tanDictEmailKey] == "":
                         if tanDictVergabedatumKey not in entry or entry[tanDictVergabedatumKey] == "" or today > datetime.datetime.fromisoformat(entry[tanDictVergabedatumKey]) + datetime.timedelta(days=7):
                             entry[tanDictVergabedatumKey] = today.isoformat()
