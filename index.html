@@ -872,7 +872,7 @@
         formData.set("message", combinedMessage);
         const subjectSuffix = formData.get("subject");
         const subject =
-          "Anfrage aus Kontaktformular: " + subjectSuffix ? subjectSuffix != "TAN Anfrage" : subjectSuffix;        
+          subjectSuffix != "TAN Anfrage"? "Anfrage aus Kontaktformular: " + subjectSuffix : subjectSuffix;        
         formData.set("subject", subject);
 
         btn.disabled = true;
