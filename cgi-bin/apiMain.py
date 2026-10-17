@@ -83,7 +83,10 @@ try:
         from email.message import EmailMessage
         msg = EmailMessage()
         msg['Subject'] = subject
-        msg['To'] = "office@merc-online.de"  # change this for deployment
+        to = "office@merc-online.de"
+        if subject == "TAN Anfrage":
+            to = "tan@merc-online.de"
+        msg['To'] = to
         msg['From'] = "noreply@merc-online.de"
         if validEmailHelper(from_field) and from_field != msg['From'] and from_field != msg['To']:
             msg['cc'] = from_field
@@ -93,7 +96,7 @@ try:
                 del msg['Reply-To']
                 del msg['cc']
                 msg['To'] = from_field
-                msg['cc'] = "office@merc-online.de"
+                msg['cc'] = to
         msg.set_content(content)
 
         try:

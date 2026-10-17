@@ -1981,6 +1981,12 @@ label {
 label .req {
   color: var(--accent-color);
 }
+.tan-request-is-locked {
+  color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+  border-color: #fca5a5 !important;
+  cursor: not-allowed !important;
+}
 input[type="text"],
 input[type="email"],
 input[type="tel"],
