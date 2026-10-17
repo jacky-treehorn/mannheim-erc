@@ -755,6 +755,14 @@
       let subject = document.getElementById("subject");
       let message = document.getElementById("message")
       tanRadioButton = document.getElementById("tan-anfrage-radio");
+      function handleSonstigeRadioChecked(){
+        subject.readOnly = false;
+        subject.value = "";
+        subject.classList.remove('tan-request-is-locked');
+        message.readOnly = false;
+        message.value = "";
+        message.classList.remove('tan-request-is-locked');
+      }
       function handleRadioChecked() {
         tanRadioButton.checked;
         subject.readOnly = true;
@@ -769,7 +777,6 @@
       tanRadioButton.addEventListener('change', () => 
         {
           if (tanRadioButton.checked){
-            console.log("TA Checked");
             handleRadioChecked();
           }
         }
@@ -777,13 +784,7 @@
       sonstigeRadioButton.addEventListener('change', () => 
         {
           if (sonstigeRadioButton.checked){
-            console.log("TA not checked");
-            subject.readOnly = false;
-            subject.value = "";
-            subject.classList.remove('tan-request-is-locked');
-            message.readOnly = false;
-            message.value = "";
-            message.classList.remove('tan-request-is-locked');
+            handleSonstigeRadioChecked();
           }
         }
       );
@@ -869,8 +870,9 @@
         const originalMessage = formData.get("message") || "";
         const combinedMessage = `Absender: ${senderName}\n\n${originalMessage}`;
         formData.set("message", combinedMessage);
+        const subjectSuffix = formData.get("subject");
         const subject =
-          "Anfrage aus Kontaktformular: " + formData.get("subject");
+          "Anfrage aus Kontaktformular: " + subjectSuffix ? subjectSuffix != "TAN Anfrage" : subjectSuffix;        
         formData.set("subject", subject);
 
         btn.disabled = true;
@@ -905,6 +907,9 @@
         } finally {
           btn.disabled = false;
           getCapchaQuestion();
+          if (tanRadioButton.checked){
+            handleRadioChecked();
+          }
         }
       });
       const dringendeMeldungen = document.getElementById("dringendeMeldungen");
