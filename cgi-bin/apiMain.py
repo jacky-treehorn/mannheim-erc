@@ -233,7 +233,7 @@ try:
                         if tanDictVergabedatumKey not in entry or entry[tanDictVergabedatumKey] == "" or today > datetime.datetime.fromisoformat(entry[tanDictVergabedatumKey]) + datetime.timedelta(days=7):
                             entry[tanDictVergabedatumKey] = today.isoformat()
                             send_email_with_attachment("TAN Anfrage",
-                                                       "Ihre TAN lautet: "+tan+". Diese TAN ist fuer Sie 7 Tage reserviert.",
+                                                       "Ihre TAN lautet: "+tan+". Diese TAN ist fuer Sie 7 Tage reserviert. Unsere Formulare finden Sie bei https://merc-online.de/formulare/antrag-formular.html",
                                                        email,
                                                        swapCCandTo=True)
                             with open(tanListFullPath, "w") as f:
