@@ -1,5 +1,12 @@
 const OEFFENTLICHE_MELDUNGEN = [
   {
+    title: "Änderung in der Belegungsplan von 26.10 bis 02.11",
+    date: "26.10.2026",
+    url: "",
+    text: `
+      <p>Achtung, in der o.g. Zeitraum gibt es eine geänderte Belegungsplan, wir laden sobald wie möglich einen aktualisierten Plan hoch.</p>`,
+  },
+  {
     title: "Abteilungsversammlung Schnelllauf",
     date: "02.10.2026",
     url: "",
