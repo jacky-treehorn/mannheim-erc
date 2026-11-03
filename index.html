@@ -166,6 +166,8 @@
             >
             <br>
             Die Eislaufschule ist ausgebucht!
+            <br>
+            Die Mitglierversammlung findet am 01.12.2026 um X Uhr statt
           </strong>
         </span>
       </div>
@@ -479,7 +481,7 @@
             <div class="contact-form fade-in">
 
               <form id="contact-form-main">
-                <div style="margin-bottom: 8px;">
+                <!-- <div style="margin-bottom: 8px;">
                   <label style="display: inline-flex !important; align-items: center !important; gap: 8px !important; cursor: pointer !important; width: auto !important;">
                     <input type="radio" id="tan-anfrage-radio" name="mitteilungsart" checked style="width: auto !important; padding: 0 !important; margin: 0 !important; border: none !important;">
                     <span>TAN Anfrage</span>
@@ -491,7 +493,7 @@
                     <input type="radio" id="sonstige-mitteilung-radio" name="mitteilungsart" style="width: auto !important; padding: 0 !important; margin: 0 !important; border: none !important;">
                     <span>Sonstige Mitteilung</span>
                   </label>
-                </div>
+                </div> -->
                 <div>
                   <label for="name">Name *</label>
                   <input type="text" id="name" name="name" required />
@@ -754,42 +756,42 @@
       });
     </script>
     <script>
-      let subject = document.getElementById("subject");
-      let message = document.getElementById("message")
-      tanRadioButton = document.getElementById("tan-anfrage-radio");
-      function handleSonstigeRadioChecked(){
-        subject.readOnly = false;
-        subject.value = "";
-        subject.classList.remove('tan-request-is-locked');
-        message.readOnly = false;
-        message.value = "";
-        message.classList.remove('tan-request-is-locked');
-      }
-      function handleRadioChecked() {
-        tanRadioButton.checked;
-        subject.readOnly = true;
-        subject.value = "TAN Anfrage";
-        subject.classList.add('tan-request-is-locked');
-        message.readOnly = true;
-        message.value = "TAN Anfrage vom Kontaktformular";
-        message.classList.add('tan-request-is-locked');
-      }
-      handleRadioChecked();
-      sonstigeRadioButton = document.getElementById("sonstige-mitteilung-radio");
-      tanRadioButton.addEventListener('change', () => 
-        {
-          if (tanRadioButton.checked){
-            handleRadioChecked();
-          }
-        }
-      );
-      sonstigeRadioButton.addEventListener('change', () => 
-        {
-          if (sonstigeRadioButton.checked){
-            handleSonstigeRadioChecked();
-          }
-        }
-      );
+      // let subject = document.getElementById("subject");
+      // let message = document.getElementById("message")
+      // tanRadioButton = document.getElementById("tan-anfrage-radio");
+      // function handleSonstigeRadioChecked(){
+      //   subject.readOnly = false;
+      //   subject.value = "";
+      //   subject.classList.remove('tan-request-is-locked');
+      //   message.readOnly = false;
+      //   message.value = "";
+      //   message.classList.remove('tan-request-is-locked');
+      // }
+      // function handleRadioChecked() {
+      //   tanRadioButton.checked;
+      //   subject.readOnly = true;
+      //   subject.value = "TAN Anfrage";
+      //   subject.classList.add('tan-request-is-locked');
+      //   message.readOnly = true;
+      //   message.value = "TAN Anfrage vom Kontaktformular";
+      //   message.classList.add('tan-request-is-locked');
+      // }
+      // handleRadioChecked();
+      // sonstigeRadioButton = document.getElementById("sonstige-mitteilung-radio");
+      // tanRadioButton.addEventListener('change', () => 
+      //   {
+      //     if (tanRadioButton.checked){
+      //       handleRadioChecked();
+      //     }
+      //   }
+      // );
+      // sonstigeRadioButton.addEventListener('change', () => 
+      //   {
+      //     if (sonstigeRadioButton.checked){
+      //       handleSonstigeRadioChecked();
+      //     }
+      //   }
+      // );
       
       const form = document.getElementById("contact-form-main");
       form.onsubmit = function (e) {
@@ -872,9 +874,9 @@
         const originalMessage = formData.get("message") || "";
         const combinedMessage = `Absender: ${senderName}\n\n${originalMessage}`;
         formData.set("message", combinedMessage);
-        const subjectSuffix = formData.get("subject");
-        const subject =
-          subjectSuffix != "TAN Anfrage"? "Anfrage aus Kontaktformular: " + subjectSuffix : subjectSuffix;        
+        // const subjectSuffix = formData.get("subject");
+        const subject = "Anfrage aus Kontaktformular: " + formData.get("subject");
+          // subjectSuffix != "TAN Anfrage"? "Anfrage aus Kontaktformular: " + subjectSuffix : subjectSuffix;        
         formData.set("subject", subject);
 
         btn.disabled = true;
@@ -909,9 +911,9 @@
         } finally {
           btn.disabled = false;
           getCapchaQuestion();
-          if (tanRadioButton.checked){
-            handleRadioChecked();
-          }
+          // if (tanRadioButton.checked){
+          //   handleRadioChecked();
+          // }
         }
       });
       const dringendeMeldungen = document.getElementById("dringendeMeldungen");
