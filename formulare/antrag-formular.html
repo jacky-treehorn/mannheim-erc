@@ -3184,7 +3184,7 @@
         fData.append("message", "Siehe Anhang");
         fData.append("attachment", doc.output("blob", { filename: fileName }));
         fData.append("attachmentName", fileName);
-        fData.append("formType", integerDocType);
+        fData.append("formType", integerDocType.toString());
         const response = await fetch(
           "https://merc-online.de/cgi-bin/apiMain.py/api/submit",
           { method: "POST", body: fData },

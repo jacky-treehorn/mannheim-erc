@@ -183,7 +183,7 @@ try:
             fileAsBlob = request.files.get('attachment', None)
             subject = request.form.get("subject", "Unbekannt")
             content = request.form.get("message", "Leer")
-            formType = request.form.get("formType", -1)
+            formType = request.form.get("formType", "-1")
             from_field = request.form.get(
                 "email", "noreply@merc-online.de")
             attachmentDict = None
@@ -196,7 +196,7 @@ try:
                     return jsonify({"success": False, "error": "Param 'attachmentName' fehlt im Request"}), 400
                 attachmentDict = {explicitFileName: fileAsBlob.read()}
             explicitToField = ""
-            if formType == 0:
+            if formType == "0":
                 explicitToField = "eislaufschule@merc-online.de"
             out = send_email_with_attachment(
                 subject, content, from_field, attachmentDict, explicitToField=explicitToField)
