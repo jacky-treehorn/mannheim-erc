@@ -197,272 +197,6 @@
       <section class="forms-section">
         <div class="container">
           <div class="forms-container">
-            <!-- ── EISLAUFSCHULE ─────────────────────────────────────── -->
-            <div class="form-card" id="linkEislaufschule">
-              <div class="card-header">
-                <div class="card-header-text">
-                  <h2>Antrag Eislaufschule</h2>
-                  <p>Anmeldung für die Eislaufschule des Mannheimer ERC</p>
-                </div>
-                <div class="tan-row">
-                  <input
-                    id="antrag-eislaufschule-TAN"
-                    class="tan-input"
-                    type="text"
-                    placeholder="TAN eingeben"
-                  />
-                  <input
-                    id="antrag-eislaufschule-existing-TAN-email"
-                    class="tan-email-field"
-                    type="email"
-                    placeholder="E-Mail zur Authentifizierung"
-                  />
-                  <button
-                    type="button"
-                    id="verify-eislaufschule-tan-btn"
-                    class="tan-verify-btn"
-                  >
-                    Prüfen
-                  </button>
-                </div>
-                <div class="button-with-caption">
-                  <button
-                    class="card-toggle"
-                    id="antrag-eislaufschule-toggle-btn"
-                    aria-label="Formular öffnen/schließen"
-                  >
-                    <svg
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                    >
-                      <path d="M3 6l5 5 5-5" />
-                    </svg>
-                  </button>
-                  <p class="caption">auf/zu</p>
-                </div>
-              </div>
-              <div
-                class="reset-warning"
-                id="antrag-eislaufschule-newstart-warning"
-              >
-                ⚠ Erneutes Klicken bei auf/zu setzt alle Eingaben zurück
-              </div>
-              <div class="conditions-toggle-bar">
-                <button
-                  class="conditions-btn"
-                  id="eislaufschule-bedingungen-data-trigger"
-                >
-                  Formularbestimmungen anzeigen
-                </button>
-              </div>
-              <div
-                id="eislaufschule-bedingungen-display-area"
-                class="conditions-body"
-              ></div>
-              <div id="antrag-eislaufschule-wrapper" class="form-body">
-                <div
-                  id="generalAlertEislaufSchule"
-                  class="alert-box-antrag-formular"
-                ></div>
-                <form id="antragFormEislaufschule" novalidate>
-                  <div class="form-section">
-                    <h3>Persönliche Daten Teilnehmer</h3>
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label
-                          >Name <span class="req">*</span
-                          ><input type="text" name="NameTeilnehmer1" required
-                        /></label>
-                      </div>
-                      <div class="form-group">
-                        <label
-                          >Vorname <span class="req">*</span
-                          ><input
-                            type="text"
-                            name="VornameTeilnehmer1"
-                            required
-                        /></label>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group full-width">
-                        <label
-                          >Geburtsdatum <span class="req">*</span
-                          ><input
-                            type="date"
-                            name="GeburtsdatumTeilnehmer1"
-                            required
-                        /></label>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group full-width">
-                        <label
-                          >Straße und Hausnummer <span class="req">*</span
-                          ><input type="text" name="Strasse" required
-                        /></label>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label
-                          >Postleitzahl <span class="req">*</span
-                          ><input
-                            type="text"
-                            name="PLZ"
-                            placeholder="z.B. 68159"
-                            required
-                        /></label>
-                      </div>
-                      <div class="form-group">
-                        <label
-                          >Wohnort <span class="req">*</span
-                          ><input type="text" name="Wohnort" required
-                        /></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-section">
-                    <h3>Erziehungsberechtigte (optional)</h3>
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label
-                          >Name
-                          <input type="text" name="NameErziehungsberechtigte"
-                        /></label>
-                      </div>
-                      <div class="form-group">
-                        <label
-                          >Vorname
-                          <input
-                            type="text"
-                            name="VornameErziehungsberechtigte"
-                        /></label>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group full-width">
-                        <label
-                          >Geburtsdatum
-                          <input
-                            type="date"
-                            name="GeburtsdatumErziehungsberechtigte"
-                        /></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="form-section"
-                    id="zusatzteilnehmer-container-eislaufschule"
-                  >
-                    <h3>Zusatzteilnehmer (optional)</h3>
-                    <div
-                      class="form-row"
-                      data-cloned="false"
-                      data-firstrow="true"
-                    >
-                      <div class="form-group">
-                        <label
-                          >Name Zusatzteilnehmer
-                          <input type="text" name="NameZusatzteilnehmer"
-                        /></label>
-                      </div>
-                      <div class="form-group">
-                        <label
-                          >Vorname Zusatzteilnehmer
-                          <input type="text" name="VornameZusatzteilnehmer"
-                        /></label>
-                      </div>
-                    </div>
-                    <div class="form-row" data-cloned="false">
-                      <div class="form-group full-width">
-                        <label
-                          >Geburtsdatum Zusatzteilnehmer
-                          <input
-                            type="date"
-                            name="GeburtsdatumZusatzteilnehmer"
-                        /></label>
-                      </div>
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    class="remove-btn"
-                    style="display: none"
-                    id="zusatzteilnehmer-eislaufschule-remove"
-                  >
-                    <i class="fas fa-trash-alt"></i> Letzter Eintrag löschen
-                  </button>
-                  <button
-                    type="button"
-                    id="zusatzteilnehmer-eislaufschule-add"
-                    style="display: block; margin-bottom: 10px"
-                  >
-                    <i class="fas fa-plus"></i> Weitere Teilnehmer hinzufügen
-                  </button>
-
-                  <div class="form-section">
-                    <h3>Kontaktdaten</h3>
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label
-                          >Telefon / Mobil <span class="req">*</span>
-                          <input
-                            type="tel"
-                            name="TelefonMobil"
-                            placeholder="+49 123 456789"
-                            required
-                        /></label>
-                      </div>
-                      <div class="form-group">
-                        <label
-                          >E-Mail <span class="req">*</span>
-                          <input
-                            id="antrag-eislaufschule-email-input"
-                            type="email"
-                            name="eMail"
-                            required
-                        /></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-section">
-                    <h3>Formularbestimmungen</h3>
-                    <div class="checkbox-group">
-                      <input
-                        type="checkbox"
-                        id="cb-bestimmungen-eislaufschule"
-                        name="Bestimmungen"
-                        required
-                      />
-                      <label for="cb-bestimmungen-eislaufschule"
-                        >Ich habe die Formularbestimmungen gelesen und
-                        akzeptiert. <span class="req">*</span></label
-                      >
-                    </div>
-                    <div id="checkbox-error-bestimmungen-eislaufschule"></div>
-                  </div>
-
-                  <div class="form-footer">
-                    <a href="../about.html" class="btn-back">Zurück</a>
-                    <button
-                      type="submit"
-                      class="btn-submit"
-                      id="submitBtnEislaufschule"
-                    >
-                      <span id="btnTextEislaufschule"
-                        >Absenden &amp; PDF laden</span
-                      >
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
 
             <!-- ── AUFNAHMEANTRAG ────────────────────────────────────── -->
             <div class="form-card" id="linkAufnahmeantrag">
@@ -849,7 +583,7 @@
             </div>
 
             <!-- ── SCHNUPPERKURS ─────────────────────────────────────── -->
-            <div class="form-card" id="linkSchnupperkurs">
+            <div class="form-card" id="linkSchnupperkurs" style="display: none;">
               <div class="card-header">
                 <div class="card-header-text">
                   <h2>Antrag Schnupperkurs</h2>
@@ -1082,6 +816,290 @@
       <section class="forms-section">
         <div class="container">
           <div class="forms-container">
+            <!-- ── EISLAUFSCHULE ─────────────────────────────────────── -->
+            <div class="form-card" id="linkEislaufschule">
+              <div class="card-header">
+                <div class="card-header-text">
+                  <h2>Antrag Eislaufschule</h2>
+                  <p>Anmeldung für die Eislaufschule des Mannheimer ERC</p>
+                </div>
+                <div class="tan-row">
+                  <input
+                    id="antrag-eislaufschule-TAN"
+                    class="tan-input"
+                    type="text"
+                    placeholder="TAN eingeben"
+                  />
+                  <input
+                    id="antrag-eislaufschule-existing-TAN-email"
+                    class="tan-email-field"
+                    type="email"
+                    placeholder="E-Mail zur Authentifizierung"
+                  />
+                  <button
+                    type="button"
+                    id="verify-eislaufschule-tan-btn"
+                    class="tan-verify-btn"
+                  >
+                    Prüfen
+                  </button>
+                </div>
+                <div class="button-with-caption">
+                  <button
+                    class="card-toggle"
+                    id="antrag-eislaufschule-toggle-btn"
+                    aria-label="Formular öffnen/schließen"
+                  >
+                    <svg
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                    >
+                      <path d="M3 6l5 5 5-5" />
+                    </svg>
+                  </button>
+                  <p class="caption">auf/zu</p>
+                </div>
+              </div>
+              <div
+                class="reset-warning"
+                id="antrag-eislaufschule-newstart-warning"
+              >
+                ⚠ Erneutes Klicken bei auf/zu setzt alle Eingaben zurück
+              </div>
+              <div class="conditions-toggle-bar">
+                <button
+                  class="conditions-btn"
+                  id="eislaufschule-bedingungen-data-trigger"
+                >
+                  Formularbestimmungen anzeigen
+                </button>
+              </div>
+              <div
+                id="eislaufschule-bedingungen-display-area"
+                class="conditions-body"
+              ></div>
+              <div id="antrag-eislaufschule-wrapper" class="form-body">
+                <div
+                  id="generalAlertEislaufSchule"
+                  class="alert-box-antrag-formular"
+                ></div>
+                <form id="antragFormEislaufschule" novalidate>
+                  <div class="form-section">
+                    <h3>Persönliche Daten Teilnehmer</h3>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label
+                          >Name <span class="req">*</span
+                          ><input type="text" name="NameTeilnehmer1" required
+                        /></label>
+                      </div>
+                      <div class="form-group">
+                        <label
+                          >Vorname <span class="req">*</span
+                          ><input
+                            type="text"
+                            name="VornameTeilnehmer1"
+                            required
+                        /></label>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group full-width">
+                        <label
+                          >Geburtsdatum <span class="req">*</span
+                          ><input
+                            type="date"
+                            name="GeburtsdatumTeilnehmer1"
+                            required
+                        /></label>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group full-width">
+                        <label
+                          >Straße und Hausnummer <span class="req">*</span
+                          ><input type="text" name="Strasse" required
+                        /></label>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label
+                          >Postleitzahl <span class="req">*</span
+                          ><input
+                            type="text"
+                            name="PLZ"
+                            placeholder="z.B. 68159"
+                            required
+                        /></label>
+                      </div>
+                      <div class="form-group">
+                        <label
+                          >Wohnort <span class="req">*</span
+                          ><input type="text" name="Wohnort" required
+                        /></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-section">
+                    <h3>Erziehungsberechtigte (optional)</h3>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label
+                          >Name
+                          <input type="text" name="NameErziehungsberechtigte"
+                        /></label>
+                      </div>
+                      <div class="form-group">
+                        <label
+                          >Vorname
+                          <input
+                            type="text"
+                            name="VornameErziehungsberechtigte"
+                        /></label>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group full-width">
+                        <label
+                          >Geburtsdatum
+                          <input
+                            type="date"
+                            name="GeburtsdatumErziehungsberechtigte"
+                        /></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="form-section"
+                    id="zusatzteilnehmer-container-eislaufschule"
+                  >
+                    <h3>Zusatzteilnehmer (optional)</h3>
+                    <div
+                      class="form-row"
+                      data-cloned="false"
+                      data-firstrow="true"
+                    >
+                      <div class="form-group">
+                        <label
+                          >Name Zusatzteilnehmer
+                          <input type="text" name="NameZusatzteilnehmer"
+                        /></label>
+                      </div>
+                      <div class="form-group">
+                        <label
+                          >Vorname Zusatzteilnehmer
+                          <input type="text" name="VornameZusatzteilnehmer"
+                        /></label>
+                      </div>
+                    </div>
+                    <div class="form-row" data-cloned="false">
+                      <div class="form-group full-width">
+                        <label
+                          >Geburtsdatum Zusatzteilnehmer
+                          <input
+                            type="date"
+                            name="GeburtsdatumZusatzteilnehmer"
+                        /></label>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="remove-btn"
+                    style="display: none"
+                    id="zusatzteilnehmer-eislaufschule-remove"
+                  >
+                    <i class="fas fa-trash-alt"></i> Letzter Eintrag löschen
+                  </button>
+                  <button
+                    type="button"
+                    id="zusatzteilnehmer-eislaufschule-add"
+                    style="display: block; margin-bottom: 10px"
+                  >
+                    <i class="fas fa-plus"></i> Weitere Teilnehmer hinzufügen
+                  </button>
+
+                  <div class="form-section">
+                    <h3>Kontaktdaten</h3>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label
+                          >Telefon / Mobil <span class="req">*</span>
+                          <input
+                            type="tel"
+                            name="TelefonMobil"
+                            placeholder="+49 123 456789"
+                            required
+                        /></label>
+                      </div>
+                      <div class="form-group">
+                        <label
+                          >E-Mail <span class="req">*</span>
+                          <input
+                            id="antrag-eislaufschule-email-input"
+                            type="email"
+                            name="eMail"
+                            required
+                        /></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-section">
+                    <h3>Formularbestimmungen</h3>
+                    <div class="checkbox-group">
+                      <input
+                        type="checkbox"
+                        id="cb-bestimmungen-eislaufschule"
+                        name="Bestimmungen"
+                        required
+                      />
+                      <label for="cb-bestimmungen-eislaufschule"
+                        >Ich habe die Formularbestimmungen gelesen und
+                        akzeptiert. <span class="req">*</span></label
+                      >
+                    </div>
+                    <div id="checkbox-error-bestimmungen-eislaufschule"></div>
+                  </div>                  
+                  <div class="form-section">
+                    <label
+                      for="capchaInput"
+                    >
+                      Sicherheitsfrage
+                      <p 
+                        id="capchaQuestionEislaufschule"
+                        data-name="capchaQuestionField"
+                      >
+                        4+5=?
+                      </p>
+                    </label>
+                    <input
+                      type="number"
+                      id="capchaInputFieldEislaufschule"
+                      name="capchaInput"
+                      required
+                    />
+                  </div>
+                  <div class="form-footer">
+                    <a href="../about.html" class="btn-back">Zurück</a>
+                    <button
+                      type="submit"
+                      class="btn-submit"
+                      id="submitBtnEislaufschule"
+                    >
+                      <span id="btnTextEislaufschule"
+                        >Absenden &amp; PDF laden</span
+                      >
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
             <!-- ── AUFBEWAHRUNGSSCHRANK ──────────────────────────────── -->
             <div class="form-card" id="linkSchrankmiete">
               <div class="card-header">
@@ -2494,6 +2512,7 @@
     <script>
       const { jsPDF } = globalThis.jspdf;
       const formsThatDoNotNeedTan = {
+        "0":0,
         "3":3,
         "4":4,
         "5":5,
@@ -3165,6 +3184,7 @@
         fData.append("message", "Siehe Anhang");
         fData.append("attachment", doc.output("blob", { filename: fileName }));
         fData.append("attachmentName", fileName);
+        fData.append("formType", integerDocType.toString());
         const response = await fetch(
           "https://merc-online.de/cgi-bin/apiMain.py/api/submit",
           { method: "POST", body: fData },
@@ -3634,6 +3654,10 @@
           "minderjaehrige-container-aufnahmeantrag",
           1,
         );
+        getCapchaQuestion(
+          "capchaQuestionEislaufschule",
+          "capchaInputFieldEislaufschule",
+          0);
         getCapchaQuestion(
           "capchaQuestionSchrank",
           "capchaInputFieldSchrank",

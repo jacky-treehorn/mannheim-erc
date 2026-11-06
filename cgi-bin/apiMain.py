@@ -66,7 +66,8 @@ try:
                                    fileNameFilePathDict: typing.Optional[typing.Dict[str,
                                                                                      typing.Union[str, bytes]]] = None,
                                    deleteFiles: bool = True,
-                                   swapCCandTo: bool = False) -> bool:
+                                   swapCCandTo: bool = False,
+                                   explicitToField: str = "") -> bool:
         emailConfig = {}
         emailConfig["YOUR_STRATO_USER"] = None
         emailConfig["YOUR_STRATO_PASS"] = None
@@ -84,8 +85,10 @@ try:
         msg = EmailMessage()
         msg['Subject'] = subject
         to = "office@merc-online.de"
-        if subject == "TAN Anfrage":
-            to = "tan@merc-online.de"
+        # if subject == "TAN Anfrage":
+        #     to = "tan@merc-online.de"
+        if explicitToField != "" and validEmailHelper(explicitToField):
+            to = explicitToField
         msg['To'] = to
         msg['From'] = "noreply@merc-online.de"
         if validEmailHelper(from_field) and from_field != msg['From'] and from_field != msg['To']:
@@ -180,6 +183,7 @@ try:
             fileAsBlob = request.files.get('attachment', None)
             subject = request.form.get("subject", "Unbekannt")
             content = request.form.get("message", "Leer")
+            formType = request.form.get("formType", "-1")
             from_field = request.form.get(
                 "email", "noreply@merc-online.de")
             attachmentDict = None
@@ -191,8 +195,11 @@ try:
                 if explicitFileName is None:
                     return jsonify({"success": False, "error": "Param 'attachmentName' fehlt im Request"}), 400
                 attachmentDict = {explicitFileName: fileAsBlob.read()}
+            explicitToField = ""
+            if formType == "0":
+                explicitToField = "eislaufschule@merc-online.de"
             out = send_email_with_attachment(
-                subject, content, from_field, attachmentDict)
+                subject, content, from_field, attachmentDict, explicitToField=explicitToField)
             if out:
                 return jsonify({"success": True, "message": "Nachricht gesendet"}), 200
         except Exception as e:
@@ -235,6 +242,7 @@ try:
                             send_email_with_attachment("TAN Anfrage",
                                                        "Ihre TAN lautet: "+tan+". Diese TAN ist fuer Sie 7 Tage reserviert. Unsere Formulare finden Sie bei https://merc-online.de/formulare/antrag-formular.html",
                                                        email,
+                                                       explicitToField="tan@merc-online.de",
                                                        swapCCandTo=True)
                             with open(tanListFullPath, "w") as f:
                                 json.dump(_config, f, indent=4)
