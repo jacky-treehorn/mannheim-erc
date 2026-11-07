@@ -128,7 +128,7 @@
     </div>
   </template>
   <head>
-    <script src="kunstlaufMeldungen.js?v=1"></script>
+    <script src="kunstlaufMeldungen.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eiskunstlauf - Mannheimer ERC</title>
@@ -1236,6 +1236,17 @@
     ></script>
     <script src="functions/generalFunctions.js?v=2"></script>
     <script>
+      function cacheBustKunstlaufMeldungen() {
+        const klMeldungenLink = document.querySelectorAll(
+          'a[href$="kunstlaufMeldungen.js"]',
+        );
+        klMeldungenLink.forEach((link) => {
+          const url = new URL(link.href);
+          url.searchParams.set("v", Date.now());
+          link.href = url.toString();
+        });
+      }
+
       /* ========================================
          PDF MODAL LOGIK
          ======================================== */
@@ -1375,6 +1386,7 @@
         );
         observeFadeElements();
         cacheBustHallenBelegung();
+        cacheBustKunstlaufMeldungen();
         toggleArchiveNewsVisibility(
           "kl-news-toggle-btn",
           "kl-news-wrapper",
