@@ -204,7 +204,7 @@
     <div class="overlay" aria-hidden="true"></div>
 
     <main id="main-content">
-      <section class="page-hero">
+      <section id="home" class="page-hero">
         <div class="container">
           <h1 class="page-title">Eiskunstlauf</h1>
           <p class="page-subtitle">
@@ -1238,12 +1238,14 @@
     <script>
       function cacheBustKunstlaufMeldungen() {
         const klMeldungenLink = document.querySelectorAll(
-          'a[href$="kunstlaufMeldungen.js"]',
+          'script[src$="kunstlaufMeldungen.js"]',
         );
         klMeldungenLink.forEach((link) => {
-          const url = new URL(link.href);
+          const url = new URL(link.src, window.location.origin);
           url.searchParams.set("v", Date.now());
-          link.href = url.toString();
+          const newScript = document.createElement('script');
+          newScript.src = url.toString();
+          link.parentNode.replaceChild(newScript, link);
         });
       }
 
