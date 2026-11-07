@@ -1,10 +1,10 @@
 const KUNSTLAUF_MELDUNGEN = [
   {
-    title: "News",
+    title: "Abteilungsinformation",
     date: "06.11.2026",
     url: "",
     text: `
-      Hier entsteht was Bald.`,
+      Liebe Mitglieder, ab sofort teilen wir in diesem Abschnitt wichtige Informationen mit. Schauen Sie bitte regelmäßig vorbei.`,
   },
 ];
 

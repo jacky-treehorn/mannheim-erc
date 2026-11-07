@@ -24,8 +24,8 @@
           <li><a href="eiskunstlauf.html#schnuppern">Schnupperkurs</a></li>
           <li><a href="eiskunstlauf.html#erwachsene">Erwachsene</a></li>
           <li><a href="eiskunstlauf.html#geschichte">Geschichte</a></li>
-          <li><a href="wettbewerbe.html">Wettbewerbe</a></li>
           <li><a href="eiskunstlauf.html#kunstlaufAnnouncements">News</a></li>
+          <li><a href="wettbewerbe.html">Wettbewerbe</a></li>
           <li><a href="eiskunstlauf.html#kl-infos">Allgemeine Infos</a></li>
           <li><a href="eiskunstlauf.html#saison-infos">Aktuelle Saison</a></li>
         </ul>
@@ -166,7 +166,15 @@
 
     <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
-    <header>
+    <header>      
+      <div id="dringendeMeldungen" class="dringende-meldungen">
+        <span>
+          <strong
+            >
+            <a href="#kunstlaufAnnouncements" style="color: blue;">Hier</a> finden Sie die aktuellsten Infos der Abteilung Kunstlauf
+          </strong>
+        </span>
+      </div>
       <div class="container header-container">
         <a href="index.html" class="logo">
           <img src="images/Logo_MERC.gif" alt="Mannheimer ERC Logo" />
@@ -1379,6 +1387,13 @@
           KUNSTLAUF_MELDUNGEN_DATES_SORTED,
         );
       });
+      document
+        .getElementById("kl-news-src")
+        .addEventListener("focus", function () {
+          if (this.value === "#begrenzt") {
+            this.value = "";
+          }
+        });
 
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -1397,6 +1412,16 @@
           }
         });
       });
+      
+      const dringendeMeldungen = document.getElementById("dringendeMeldungen");
+      const home = document.getElementById("home");
+      if (
+        dringendeMeldungen &&
+        getComputedStyle(dringendeMeldungen).display !== "none"
+      ) {
+        const offsetHeight = dringendeMeldungen.offsetHeight;
+        home.style.marginTop = `${offsetHeight}px`;
+      }
     </script>
   </body>
 </html>
