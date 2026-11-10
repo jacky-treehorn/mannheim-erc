@@ -24,6 +24,8 @@
           <li><a href="eiskunstlauf.html#schnuppern">Schnupperkurs</a></li>
           <li><a href="eiskunstlauf.html#erwachsene">Erwachsene</a></li>
           <li><a href="eiskunstlauf.html#geschichte">Geschichte</a></li>
+          <li><a href="eiskunstlauf.html#kunstlaufAnnouncements">News</a></li>
+          <li><a href="wettbewerbe.html">Wettbewerbe</a></li>
           <li><a href="eiskunstlauf.html#kl-infos">Allgemeine Infos</a></li>
           <li><a href="eiskunstlauf.html#saison-infos">Aktuelle Saison</a></li>
         </ul>
@@ -126,7 +128,7 @@
     </div>
   </template>
   <head>
-    <script src="EisschnelllaufBlogArchive/Kurzmeldungen-archive.js?v=2"></script>
+    <script src="EisschnelllaufBlogArchive/Kurzmeldungen-archive.js?v=3"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eisschnelllauf - Mannheimer ERC</title>
@@ -963,7 +965,8 @@
           "archive-news-extra-txt",
           "archive-news-container",
           ARCHIVE_NEWS_LIST_DATES_SORTED,
-        );
+        );        
+        observeFadeElements();
         cacheBustHallenBelegung();
       });
 

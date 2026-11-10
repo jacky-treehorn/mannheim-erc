@@ -1,5 +1,40 @@
 const ARCHIVE_NEWS_LIST = [
   {
+    title: "2. Deutschland-Pokal Short Track in Rostock (07./08.11.2026)",
+    date: "09.11.2026",
+    url: "https://shorttrackonline.info/compresult.php?comp=4728",
+    text: `
+    <p>
+      Drei Nachwuchsathlet:innen unseres Vereins qualifizierten sich für den 2. Deutschland-Pokal im Short Track und machten sich auf die Reise nach Rostock.
+    </p>
+    <p>
+      LG 5
+    </p>
+    <p>
+      Amitis Roth zeigte ein herausragendes Wochenende. Sie gewann alle ihre Rennen und sicherte sich souverän den Gesamtsieg. Besonders beeindruckend: Auf allen Distanzen stellte sie neue persönliche Bestzeiten auf. Über die 500 Meter durchbrach sie erstmals die 60-Sekunden-Marke und ließ mit starken 58,469 Sekunden sogar die 59 Sekunden direkt hinter sich.
+    </p>
+    <p>
+      LG 4
+    </p>
+    <p>
+      Leni Arlt musste sich in der nächsthöheren Altersklasse beweisen und meisterte diese Herausforderung hervorragend. Über 500 Meter bestätigte sie nicht nur ihre starke Form, sondern verbesserte ihre persönliche Bestzeit nochmals um fünf Hundertstelsekunden auf 57,813 Sekunden. Damit bestätigte sie erneut die Qualifikationszeit für die Deutschen Meisterschaften und belegte in der Gesamtwertung einen guten 11. Platz.
+    </p>
+    <p>
+      LG 2
+    </p>
+    <p>
+      Für Valentin Stark stand an diesem Wochenende vor allem das Sammeln weiterer Wettkampferfahrung im Vordergrund. Trotz einiger unglücklicher Rennverläufe und Penalties zeigte er Einsatz und Kampfgeist. Die gemachten Erfahrungen werden ihm auf seinem weiteren sportlichen Weg sicher zugutekommen und bieten eine gute Grundlage für die kommenden Wettkämpfe.
+    </p>
+    <p>
+      Organisation
+    </p>
+    <p>
+      Ein großes Dankeschön geht an das Organisationsteam in Rostock. Dank des Livestreams auf YouTube konnten auch die Fans zuhause die Rennen verfolgen. Darüber hinaus sorgten die hervorragende Verpflegung, leckere Snacks sowie Kaffee und Tee für beste Bedingungen rund um die Veranstaltung. Wir haben uns in Rostock sehr wohlgefühlt und bedanken uns herzlich für die freundliche und professionelle Ausrichtung.
+      Wir gratulieren unseren Athlet:innen zu ihren Leistungen und freuen uns bereits auf die nächsten Wettkämpfe.
+    </p>
+    `,
+  },
+  {
     title: "Oberstdorf Summercamp 2025",
     date: "09.08.2025",
     url: "http://www.merc-schnelllauf.de/cms/index.php?option=com_content&view=article&id=342:oberstdorf-summercamp-2025&catid=3:kurzmeldungen",

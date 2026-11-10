@@ -24,6 +24,8 @@
           <li><a href="eiskunstlauf.html#schnuppern">Schnupperkurs</a></li>
           <li><a href="eiskunstlauf.html#erwachsene">Erwachsene</a></li>
           <li><a href="eiskunstlauf.html#geschichte">Geschichte</a></li>
+          <li><a href="eiskunstlauf.html#kunstlaufAnnouncements">News</a></li>
+          <li><a href="wettbewerbe.html">Wettbewerbe</a></li>
           <li><a href="eiskunstlauf.html#kl-infos">Allgemeine Infos</a></li>
           <li><a href="eiskunstlauf.html#saison-infos">Aktuelle Saison</a></li>
         </ul>
@@ -126,6 +128,7 @@
     </div>
   </template>
   <head>
+    <script src="kunstlaufMeldungen.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eiskunstlauf - Mannheimer ERC</title>
@@ -163,7 +166,15 @@
 
     <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 
-    <header>
+    <header>      
+      <div id="dringendeMeldungen" class="dringende-meldungen">
+        <span>
+          <strong
+            >
+            <a href="#kunstlaufAnnouncements" style="color: blue;">Hier</a> finden Sie die aktuellsten Infos der Abteilung Kunstlauf
+          </strong>
+        </span>
+      </div>
       <div class="container header-container">
         <a href="index.html" class="logo">
           <img src="images/Logo_MERC.gif" alt="Mannheimer ERC Logo" />
@@ -193,7 +204,7 @@
     <div class="overlay" aria-hidden="true"></div>
 
     <main id="main-content">
-      <section class="page-hero">
+      <section id="home" class="page-hero">
         <div class="container">
           <h1 class="page-title">Eiskunstlauf</h1>
           <p class="page-subtitle">
@@ -746,6 +757,124 @@
         </div>
       </section>
 
+      <!-- Kurzinfos -->
+      <section id="kunstlaufAnnouncements" class="news-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 id="kl-news-toggle-btn"
+              class="archive-news-toggle-button"
+              style="padding-top: 0px"
+              >
+              News<span
+                id="kl-news-toggle-icon"
+                class="archive-news-toggle-icon"
+                style="font-size: var(--font-size-xl);"
+                >▼</span
+              >
+            </h2>
+          </div>
+          <div id="kl-news-wrapper" class="news-collapsed">
+            <div class="news-filters">
+              <div class="news-filter-group">
+                <label for="kl-news-src">Suchbegriff:</label>
+                <input
+                  type="text"
+                  class="archive-news-search"
+                  id="kl-news-src"
+                  placeholder="Suche nach Stichwörtern..."
+                  oninput="
+                    handleArchiveNewsFilters(
+                      'kl-news-date-slider-min',
+                      'kl-news-date-slider-max',
+                      this,
+                      'kl-news-date-display',
+                      'kl-news-extra-text',
+                      'kl-news-container',
+                      KUNSTLAUF_MELDUNGEN_MIN_DATE,
+                      KUNSTLAUF_MELDUNGEN_DATES_SORTED,
+                    )
+                  "
+                  value="#begrenzt"
+                  name="kl-news-src"
+                />
+              </div>
+
+              <div class="news-filter-group">
+                <p>Zeitraum filtern (Wochen):</p>
+                <div class="range-slider-container">
+                  <input
+                    type="range"
+                    id="kl-news-date-slider-min"
+                    min="0"
+                    value="0"
+                    oninput="
+                      handleArchiveNewsFilters(
+                        this,
+                        'kl-news-date-slider-max',
+                        'kl-news-src',
+                        'kl-news-date-display',
+                        'kl-news-extra-text',
+                        'kl-news-container',
+                        KUNSTLAUF_MELDUNGEN_MIN_DATE,
+                        KUNSTLAUF_MELDUNGEN_DATES_SORTED,
+                      )
+                    "
+                  />
+                  <input
+                    type="range"
+                    id="kl-news-date-slider-max"
+                    min="0"
+                    value="100"
+                    oninput="
+                      handleArchiveNewsFilters(
+                        'kl-news-date-slider-min',
+                        this,
+                        'kl-news-src',
+                        'kl-news-date-display',
+                        'kl-news-extra-text',
+                        'kl-news-container',
+                        KUNSTLAUF_MELDUNGEN_MIN_DATE,
+                        KUNSTLAUF_MELDUNGEN_DATES_SORTED,
+                      )
+                    "
+                  />
+                </div>
+                <div
+                  id="kl-news-date-display"
+                  class="archive-news-date-display"
+                >
+                  Ganze Zeitspanne
+                </div>
+                <div
+                  id="kl-news-extra-text"
+                  class="archive-news-extra-text"
+                ></div>
+              </div>
+
+              <button
+                class="archive-news-reset-filters"
+                onclick="
+                  resetArchiveNewsFilters(
+                    'kl-news-src',
+                    'kl-news-date-slider-min',
+                    'kl-news-date-slider-max',
+                    'kl-news-date-display',
+                    'kl-news-extra-text',
+                    'kl-news-container',
+                    KUNSTLAUF_MELDUNGEN_DATES_SORTED,
+                  )
+                "
+              >
+                Filter zurücksetzen
+              </button>
+            </div>
+            <div class="content-section" id="kl-news-container">
+              <h3>Loading news...</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ========================================
            TERMINE & INFOS DOWNLOADS SECTION
            ======================================== -->
@@ -1107,6 +1236,19 @@
     ></script>
     <script src="functions/generalFunctions.js?v=2"></script>
     <script>
+      function cacheBustKunstlaufMeldungen() {
+        const klMeldungenLink = document.querySelectorAll(
+          'script[src$="kunstlaufMeldungen.js"]',
+        );
+        klMeldungenLink.forEach((link) => {
+          const url = new URL(link.src, window.location.origin);
+          url.searchParams.set("v", Date.now());
+          const newScript = document.createElement('script');
+          newScript.src = url.toString();
+          link.parentNode.replaceChild(newScript, link);
+        });
+      }
+
       /* ========================================
          PDF MODAL LOGIK
          ======================================== */
@@ -1244,8 +1386,28 @@
           "geschichte-toggle-btn",
           "geschichte-container",
         );
+        observeFadeElements();
         cacheBustHallenBelegung();
+        cacheBustKunstlaufMeldungen();
+        toggleArchiveNewsVisibility(
+          "kl-news-toggle-btn",
+          "kl-news-wrapper",
+          "kl-news-date-slider-min",
+          "kl-news-date-slider-max",
+          "kl-news-src",
+          "kl-news-date-display",
+          "kl-news-extra-text",
+          "kl-news-container",
+          KUNSTLAUF_MELDUNGEN_DATES_SORTED,
+        );
       });
+      document
+        .getElementById("kl-news-src")
+        .addEventListener("focus", function () {
+          if (this.value === "#begrenzt") {
+            this.value = "";
+          }
+        });
 
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -1264,6 +1426,16 @@
           }
         });
       });
+      
+      const dringendeMeldungen = document.getElementById("dringendeMeldungen");
+      const home = document.getElementById("home");
+      if (
+        dringendeMeldungen &&
+        getComputedStyle(dringendeMeldungen).display !== "none"
+      ) {
+        const offsetHeight = dringendeMeldungen.offsetHeight;
+        home.style.marginTop = `${offsetHeight}px`;
+      }
     </script>
   </body>
 </html>
