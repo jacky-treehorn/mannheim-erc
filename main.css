@@ -2291,6 +2291,30 @@ input:focus-visible {
   font-weight: 600;
 }
 
+@media (max-width: 768px) {
+  .comp-card {
+    margin: var(--spacing-xs);
+    padding: var(--spacing-sm);
+  }
+
+  .comp-image-wrapper {
+    height: 280px;
+  }
+
+  .comp-body {
+    padding: var(--spacing-md);
+  }
+
+  .comp-title {
+    font-size: 1.25rem;
+  }
+
+  .comp-body ul {
+    padding-left: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
 /* LIGHTBOX / MODAL */
 .modal {
   display: none;

@@ -9,63 +9,63 @@ const wettbewerbeData = [
     title: "Brigitte-Föll-Pokal 2026",
     date: "08.11.2026",
    description: ` 
-   <p>
+    <p>
       <span>Erfolgreiches Wochenende für den Mannheimer ERC beim Brigitte Föll Pokal 2026</span>
     </p>
 
-    <h3><span>Unsere Ergebnisse:</span></h3>
+    <h4><span>Unsere Ergebnisse:</span></h4>
 
-    <h4><span>Advanced Novice Jungen und Qualifikation zur Deutschen Nachwuchsmeisterschaft 2027:</span></h4>
+    <h5><span>Advanced Novice Jungen und Qualifikation zur Deutschen Nachwuchsmeisterschaft 2027:</span></h5>
     <ul>
-        <p><span>Platz 1 -Leo Zhou</span></p>
-        <p><span>Platz 2 - Theodor Peth</span></p>
-        <p><span>Platz 3 - Maximilian Mild</span></p> 
+      <p><li>Platz 1 -Leo Zhou</li></p>
+      <p><li>Platz 2 - Theodor Peth</li></p>
+      <p><li>Platz 3 - Maximilian Mild</li></p> 
     </ul>
 
-    <h4><span>Advanced Novice Mädchen und Qualifikation zur Deutschen Nachwuchsmeisterschaft 2027:</span></h4>
+    <h5><span>Advanced Novice Mädchen und Qualifikation zur Deutschen Nachwuchsmeisterschaft 2027:</span></h5>
     <ul>
-        <p><span>Platz 1 - Liliana Bloch</span></p>
-        <p><span>Platz 3 - Stella Herzog</span></p>
-        <p><span>Platz 4 - Sophia Solz</span></p>
-        <p><span>Platz 7 - Lotta Montwe</span></p> 
-        <p><span>Platz 9 - Emma Adamczyk (Ersatz DNM)</span></p>
-        <p><span>Platz 10 - Lea Jurisic (Ersatz DNM)</span></p> 
+      <p><li>Platz 1 - Liliana Bloch</li></p>
+      <p><li>Platz 3 - Stella Herzog</li></p>
+      <p><li>Platz 4 - Sophia Solz</li></p>
+      <p><li>Platz 7 - Lotta Montwe</li></p> 
+      <p><li>Platz 9 - Emma Adamczyk (Ersatz DNM)</li></p>
+      <p><li>Platz 10 - Lea Jurisic (Ersatz DNM)</li></p> 
     </ul>
 
-    <h4><span>Novice U12 Mädchen:</span></h4>
+    <h5><span>Novice U12 Mädchen:</span></h5>
     <ul>
-        <p><span>Platz 1 - Conny Li</span></p>
-        <p><span>Platz 2 - Isabelle Moskalyuk</span></p>
-        <p><span>Platz 3 - Alisa Slidziewska</span></p>
+      <p><li>Platz 1 - Conny Li</li></p>
+      <p><li>Platz 2 - Isabelle Moskalyuk</li></p>
+      <p><li>Platz 3 - Alisa Slidziewska</li></p>
     </ul>
 
-    <h4><span>Novice U10 Mädchen:</span></h4>
+    <h5><span>Novice U10 Mädchen:</span></h5>
     <ul>
-        <p><span>Platz 1 - Alisa Pastukhova</span></p>
-        <p><span>Platz 2 - Élise Reiser</span></p>
-        <p><span>Platz 3 - Phyllis Duda</span></p>
+      <p><li>Platz 1 - Alisa Pastukhova</li></p>
+      <p><li>Platz 2 - Élise Reiser</li></p>
+      <p><li>Platz 3 - Phyllis Duda</li></p>
     </ul>
 
-    <h4><span>Intermediate Mädchen:</span></h4>
+    <h5><span>Intermediate Mädchen:</span></h5>
     <ul>
-        <p><span>Platz 2 - Laura Rosenthal</span></p>
+        <p><li>Platz 2 - Laura Rosenthal</li></p>
     </ul>
 
-    <h4><span>Pre-Advanced Mädchen:</span></h4>
+    <h5><span>Pre-Advanced Mädchen:</span></h5>
     <ul>
-        <p><span>Platz 3 - Taylor Sauer</span></p>
+      <p><li>Platz 3 - Taylor Sauer</li></p>
     </ul>
 
-    <h4><span>Anwärter Mädchen B:</span></h4>
+    <h5><span>Anwärter Mädchen B:</span></h5>
     <ul>
-        <p><span>Platz 7 - Melina Lehmann</span></p>
-        <p><span>Platz 8 - Zoe Jurakova</span></p>
+      <p><li>Platz 7 - Melina Lehmann</li></p>
+      <p><li>Platz 8 - Zoe Jurakova</li></p>
     </ul>
 
-    <h4><span>Anwärter C Mädchen:</span></h4>
+    <h5><span>Anwärter C Mädchen:</span></h5>
     <ul>
-        <p><span>Platz 3 - Eva Engelhorn</span></p>
-     </ul>`,
+      <p><li>Platz 3 - Eva Engelhorn</li></p>
+    </ul>`,
     coverImage: "images/wettbewerbe/Gruppenbild_nach_Siegerehrung.jpeg",
     gallery: [
       "images/wettbewerbe/Siegerehrung_Advanced_Jungen.jpeg",
