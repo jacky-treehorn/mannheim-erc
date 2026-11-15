@@ -5,44 +5,79 @@
 
 const wettbewerbeData = [
   {
-    id: "dm-2025",
-    title: "Deutsche Meisterschaften 2025",
-    date: "01.01.2025",
-    description:
-      "Spannende Wettkämpfe in Berlin. Unsere Athleten haben 3 Medaillen geholt.",
-    coverImage: "images/82331e4d-ed93-4d10-8211-51c107e9e614.jpg",
+    id: "Brigitte-Föll-Pokal 2026",
+    title: "Brigitte-Föll-Pokal 2026",
+    date: "08.11.2026",
+   description: ` 
+    <p>
+      <span>Erfolgreiches Wochenende für den Mannheimer ERC beim Brigitte Föll Pokal 2026</span>
+    </p>
+
+    <h4><span>Unsere Ergebnisse:</span></h4>
+
+    <h5><span>Advanced Novice Jungen und Qualifikation zur Deutschen Nachwuchsmeisterschaft 2027:</span></h5>
+    <ul>
+      <p><span>Platz 1 -Leo Zhou</span></p>
+      <p><span>Platz 2 - Theodor Peth</span></p>
+      <p><span>Platz 3 - Maximilian Mild</span></p>
+    </ul>
+
+    <h5><span>Advanced Novice Mädchen und Qualifikation zur Deutschen Nachwuchsmeisterschaft 2027:</span></h5>
+    <ul>
+      <p><span>Platz 1 - Liliana Bloch</span></p>
+      <p><span>Platz 3 - Stella Herzog</span></p>
+      <p><span>Platz 4 - Sophia Solz</span></p>
+      <p><span>Platz 7 - Lotta Montwe</span></p>
+      <p><span>Platz 9 - Emma Adamczyk (Ersatz DNM)</span></p>
+      <p><span>Platz 10 - Lea Jurisic (Ersatz DNM)</span></p>
+    </ul>
+
+    <h5><span>Novice U12 Mädchen:</span></h5>
+    <ul>
+      <p><span>Platz 1 - Conny Li</span></p>
+      <p><span>Platz 2 - Isabelle Moskalyuk</span></p>
+      <p><span>Platz 3 - Alisa Slidziewska</span></p>
+    </ul>
+
+    <h5><span>Novice U10 Mädchen:</span></h5>
+    <ul>
+      <p><span>Platz 1 - Alisa Pastukhova</span></p>
+      <p><span>Platz 2 - Élise Reiser</span></p>
+      <p><span>Platz 3 - Phyllis Duda</span></p>
+    </ul>
+
+    <h5><span>Intermediate Mädchen:</span></h5>
+    <ul>
+        <p><span>Platz 2 - Laura Rosenthal</span></p>
+    </ul>
+
+    <h5><span>Pre-Advanced Mädchen:</span></h5>
+    <ul>
+      <p><span>Platz 3 - Taylor Sauer</span></p>
+    </ul>
+
+    <h5><span>Anwärter Mädchen B:</span></h5>
+    <ul>
+      <p><span>Platz 7 - Melina Lehmann</span></p>
+      <p><span>Platz 8 - Zoe Jurakova</span></p>
+    </ul>
+
+    <h5><span>Anwärter C Mädchen:</span></h5>
+    <ul>
+      <p><span>Platz 3 - Eva Engelhorn</span></p>
+    </ul>`,
+    coverImage: "images/wettbewerbe/Gruppenbild_nach_Siegerehrung.jpeg",
     gallery: [
-      "images/82331e4d-ed93-4d10-8211-51c107e9e614.jpg",
-      "images/Bild2.jpeg",
-      "https://via.placeholder.com/800x600?text=Siegerehrung",
-      "https://via.placeholder.com/800x600?text=Lauf+Kuer",
+      "images/wettbewerbe/Siegerehrung_Advanced_Jungen.jpeg",
+      "images/wettbewerbe/Siegerehrung_U10.jpeg",
+      "images/wettbewerbe/Phyllis_und_Elise_mit_Adrian.jpeg",
+      "images/wettbewerbe/Clara_Engelhorn_mit_Nicole_Lampe.jpeg",
     ],
   },
-  {
-    id: "jugend-2025",
-    title: "Jugendmeisterschaften Mannheim",
-    date: "01.03.2025",
-    description:
-      "Der Nachwuchs zeigt sein Können im heimischen Eissportzentrum.",
-    coverImage: "images/Bild2.jpeg",
-    gallery: [
-      "images/Bild2.jpeg",
-      "https://via.placeholder.com/800x600?text=Nachwuchs+1",
-      "https://via.placeholder.com/800x600?text=Nachwuchs+2",
-    ],
-  },
-  {
-    id: "sommer-2025",
-    title: "Internationales Sommerturnier",
-    date: "01.07.2025",
-    description: "Gäste aus ganz Europa zu Besuch in Mannheim.",
-    coverImage: "images/dc0f7fd0-3eea-4d4e-9135-640f62c069b7.jpg",
-    gallery: [
-      "images/dc0f7fd0-3eea-4d4e-9135-640f62c069b7.jpg",
-      "https://via.placeholder.com/800x600?text=Sommer+Eis",
-      "https://via.placeholder.com/800x600?text=Gruppenfoto",
-    ],
-  },
+
+ 
+ 
+ 
 ];
 
 function parseDate(dateStr) {
