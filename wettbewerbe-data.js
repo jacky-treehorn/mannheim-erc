@@ -17,54 +17,54 @@ const wettbewerbeData = [
 
     <h5><span>Advanced Novice Jungen und Qualifikation zur Deutschen Nachwuchsmeisterschaft 2027:</span></h5>
     <ul>
-      <p><li>Platz 1 -Leo Zhou</li></p>
-      <p><li>Platz 2 - Theodor Peth</li></p>
-      <p><li>Platz 3 - Maximilian Mild</li></p> 
+      <li><span>Platz 1 -Leo Zhou</span></li>
+      <li><span>Platz 2 - Theodor Peth</span></li>
+      <li><span>Platz 3 - Maximilian Mild</span></li>
     </ul>
 
     <h5><span>Advanced Novice Mädchen und Qualifikation zur Deutschen Nachwuchsmeisterschaft 2027:</span></h5>
     <ul>
-      <p><li>Platz 1 - Liliana Bloch</li></p>
-      <p><li>Platz 3 - Stella Herzog</li></p>
-      <p><li>Platz 4 - Sophia Solz</li></p>
-      <p><li>Platz 7 - Lotta Montwe</li></p> 
-      <p><li>Platz 9 - Emma Adamczyk (Ersatz DNM)</li></p>
-      <p><li>Platz 10 - Lea Jurisic (Ersatz DNM)</li></p> 
+      <li><span>Platz 1 - Liliana Bloch</span></li>
+      <li><span>Platz 3 - Stella Herzog</span></li>
+      <li><span>Platz 4 - Sophia Solz</span></li>
+      <li><span>Platz 7 - Lotta Montwe</span></li>
+      <li><span>Platz 9 - Emma Adamczyk (Ersatz DNM)</span></li>
+      <li><span>Platz 10 - Lea Jurisic (Ersatz DNM)</span></li>
     </ul>
 
     <h5><span>Novice U12 Mädchen:</span></h5>
     <ul>
-      <p><li>Platz 1 - Conny Li</li></p>
-      <p><li>Platz 2 - Isabelle Moskalyuk</li></p>
-      <p><li>Platz 3 - Alisa Slidziewska</li></p>
+      <li><span>Platz 1 - Conny Li</span></li>
+      <li><span>Platz 2 - Isabelle Moskalyuk</span></li>
+      <li><span>Platz 3 - Alisa Slidziewska</span></li>
     </ul>
 
     <h5><span>Novice U10 Mädchen:</span></h5>
     <ul>
-      <p><li>Platz 1 - Alisa Pastukhova</li></p>
-      <p><li>Platz 2 - Élise Reiser</li></p>
-      <p><li>Platz 3 - Phyllis Duda</li></p>
+      <li><span>Platz 1 - Alisa Pastukhova</span></li>
+      <li><span>Platz 2 - Élise Reiser</span></li>
+      <li><span>Platz 3 - Phyllis Duda</span></li>
     </ul>
 
     <h5><span>Intermediate Mädchen:</span></h5>
     <ul>
-        <p><li>Platz 2 - Laura Rosenthal</li></p>
+        <li><span>Platz 2 - Laura Rosenthal</span></li>
     </ul>
 
     <h5><span>Pre-Advanced Mädchen:</span></h5>
     <ul>
-      <p><li>Platz 3 - Taylor Sauer</li></p>
+      <li><span>Platz 3 - Taylor Sauer</span></li>
     </ul>
 
     <h5><span>Anwärter Mädchen B:</span></h5>
     <ul>
-      <p><li>Platz 7 - Melina Lehmann</li></p>
-      <p><li>Platz 8 - Zoe Jurakova</li></p>
+      <li><span>Platz 7 - Melina Lehmann</span></li>
+      <li><span>Platz 8 - Zoe Jurakova</span></li>
     </ul>
 
     <h5><span>Anwärter C Mädchen:</span></h5>
     <ul>
-      <p><li>Platz 3 - Eva Engelhorn</li></p>
+      <li><span>Platz 3 - Eva Engelhorn</span></li>
     </ul>`,
     coverImage: "images/wettbewerbe/Gruppenbild_nach_Siegerehrung.jpeg",
     gallery: [
