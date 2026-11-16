@@ -7,7 +7,7 @@ const wettbewerbeData = [
   {
     id: "Brigitte-Föll-Pokal 2026",
     title: "Brigitte-Föll-Pokal 2026",
-    date: "07.-08.11.2026",
+    date: "14.11.2026",
    description: ` 
     <p>
       <span>Erfolgreiches Wochenende für den Mannheimer ERC beim Brigitte Föll Pokal 2026</span>
@@ -77,7 +77,7 @@ const wettbewerbeData = [
  {
     id: "NRW Trophy 2026",
     title: "NRW Trophy 2026",
-    date: "12. - 15.11.2026",
+    date: "16.11.2026",
     description: `
       <p><span>Internationaler Auftritt unserer Sportler in Dortmund</span></p>
 
