@@ -5,7 +5,6 @@ const OEFFENTLICHE_MELDUNGEN = [
     url: "",
     text: `
       <p>Am Dienstag <strong>01.12.2026 um 18:00</strong> findet die Mitgliederversammlung im Gymnastikraum im EZH statt.</p>
-      <p>Anträge zu den einzelnen Versammlungen müssen jeweils spätestens eine Woche vor dem genannten Termin dem Vorstand in Textform mit Begründung vorliegen!</p>
       <p>Wir freuen uns auf zahlreiches Erscheinen.</p>
       
       <a
