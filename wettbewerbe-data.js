@@ -7,7 +7,7 @@ const wettbewerbeData = [
   {
     id: "Brigitte-Föll-Pokal 2026",
     title: "Brigitte-Föll-Pokal 2026",
-    date: "08.11.2026",
+    date: "14.11.2026",
    description: ` 
     <p>
       <span>Erfolgreiches Wochenende für den Mannheimer ERC beim Brigitte Föll Pokal 2026</span>
@@ -74,12 +74,39 @@ const wettbewerbeData = [
       "images/wettbewerbe/Clara_Engelhorn_mit_Nicole_Lampe.jpeg",
     ],
   },
+ {
+    id: "NRW Trophy 2026",
+    title: "NRW Trophy 2026",
+    date: "16.11.2026",
+    description: `
+      <p><span>Internationaler Auftritt unserer Sportler in Dortmund</span></p>
 
- 
- 
- 
+      <h4><span>Unsere Ergebnisse:</span></h4>
+
+      <h5><span>Junior Men:</span></h5>
+      <p><span>Starker Auftritt von Felix Zeng mit persönlicher Bestpunktzahl von 182,12 Punkten.</span></p>
+      <p><span>Platz 4 – Felix Zeng</span></p>
+
+      <h5><span>Advanced Novice Jungen:</span></h5>
+      <p><span>Leo Zhou gewinnt bei seinem ersten internationalen Wettbewerb.</span></p>
+      <p><span>Platz 1 – Leo Zhou</span></p>
+
+      <h5><span>Advanced Novice Mädchen:</span></h5>
+      <p><span>Platz 15 – Sophia Solz</span></p>
+      <p><span>Platz 17 – Liliana Bloch</span></p>
+      <p><span>Platz 19 – Shirley Sheffler</span></p>
+
+      <h5><span>Junior Women:</span></h5>
+      <p><span>Platz 21 – Leyla Tosun</span></p>
+    `,
+    coverImage: "images/wettbewerbe/Felix_Stefan.jpeg",
+    gallery: [
+      "images/wettbewerbe/Leo_Adrian_Larissa.jpeg",
+      "images/wettbewerbe/Felix_SP.jpeg",
+      "images/wettbewerbe/Felix_FP.jpeg",
+    ],
+  },
 ];
-
 function parseDate(dateStr) {
   if (!dateStr || dateStr === "N/A" || typeof dateStr !== "string") return null;
 
