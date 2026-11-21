@@ -106,6 +106,26 @@ const wettbewerbeData = [
       "images/wettbewerbe/Felix_FP.jpeg",
     ],
   },
+  {
+    id: "Neckar-Pokal 2026",
+    title: "Neckar-Pokal 2026",
+    date: "21.11.2026",
+    description: `
+      <h4><span>Unsere Ergebnisse:</span></h4>
+
+      <h5><span>Anwärter B Mädchen:</span></h5>
+      <p><span>Platz 1 – Eva Engelhorn</span></p>
+
+      <h5><span>Anwärter B Mädchen:</span></h5>
+      <p><span>Platz 4 – Melina Lehmann</span></p>
+    `,
+    coverImage: "images/wettbewerbe/Eva_und_Melina.jpeg",
+    gallery: [
+      "images/wettbewerbe/Eva_Engelhorn_1Platz.jpeg",
+      "images/wettbewerbe/Melina_Lehmann.jpeg",
+   
+    ],
+  },
 ];
 function parseDate(dateStr) {
   if (!dateStr || dateStr === "N/A" || typeof dateStr !== "string") return null;
@@ -118,7 +138,6 @@ function parseDate(dateStr) {
       Number.parseInt(germanMatch[1]),
     );
   }
-
   const monthMap = {
     januar: 0,
     january: 0,
