@@ -123,8 +123,10 @@ function handleArchiveNewsFilters(
     const itemDate = parseDate(item.date);
 
     const matchesSearch =
+      searchTerm === "" ||
       item.title.toLowerCase().includes(searchTerm) ||
-      item.text.toLowerCase().includes(searchTerm);
+      (Object.hasOwn(item, 'text') && item.text.toLowerCase().includes(searchTerm)) ||
+      (Object.hasOwn(item, 'description') && item.description.toLowerCase().includes(searchTerm));
 
     let matchesDate = false;
     if (itemDate) {
